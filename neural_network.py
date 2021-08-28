@@ -20,7 +20,7 @@ outputs = np.array([[0], [0], [0], [1], [1], [1]])
 # create NeuralNetwork class
 class NeuralNetwork:
 
-    # intialize variables in class
+    # initialize variables in class
     def __init__(self, inputs, outputs):
         self.inputs = inputs
         self.outputs = outputs
@@ -31,7 +31,7 @@ class NeuralNetwork:
 
     # activation function ==> S(x) = 1/1+e^(-x)
     def sigmoid(self, x, deriv=False):
-        if deriv == True:
+        if deriv:
             return x * (1 - x)
         return 1 / (1 + np.exp(-x))
 
@@ -46,7 +46,7 @@ class NeuralNetwork:
         self.weights += np.dot(self.inputs.T, delta)
 
     # train the neural net for 25,000 iterations
-    def train(self, epochs=25000):
+    def train(self, epochs=250):
         for epoch in range(epochs):
             # flow forward and produce an output
             self.feed_forward()
@@ -63,7 +63,6 @@ class NeuralNetwork:
 
 
 if __name__ == '__main__':
-
     # create neural network
     NN = NeuralNetwork(inputs, outputs)
     # train neural network
