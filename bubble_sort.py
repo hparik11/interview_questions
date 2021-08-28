@@ -16,17 +16,18 @@ In the worst case scenario (when the list is in reverse order), this algorithm w
 
 """
 
-def bubble_sort(nums):
+
+def bubbleSort(array):
+    # Write your code here.
     # We set swapped to True so the loop looks runs at least once
-    swapped = True
-    while swapped:
-        swapped = False
-        for i in range(len(nums) - 1):
-            if nums[i] > nums[i + 1]:
+    for _ in range(len(array)):
+        for i in range(len(array) - 1):
+            if array[i] > array[i + 1]:
                 # Swap the elements
-                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+                array[i], array[i + 1] = array[i + 1], array[i]
                 # Set the flag to True so we'll loop again
-                swapped = True
+
+        return array
 
 
 # Verify it works

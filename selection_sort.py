@@ -14,18 +14,23 @@ The amount of comparisons are (n - 1) + (n - 2) + ... + 1, which gives the Selec
 
 """
 
-def selection_sort(nums):
+
+def selectionSort(array):
+    # Write your code here.
     # This value of i corresponds to how many values were sorted
-    for i in range(len(nums)):
+    for i in range(len(array)):
         # We assume that the first item of the unsorted segment is the smallest
         lowest_value_index = i
         # This loop iterates over the unsorted items
-        for j in range(i + 1, len(nums)):
-            if nums[j] < nums[lowest_value_index]:
+        for j in range(i + 1, len(array)):
+            if array[j] < array[lowest_value_index]:
                 lowest_value_index = j
-        # Swap values of the lowest unsorted element with the first unsorted
+
+            # Swap values of the lowest unsorted element with the first unsorted
         # element
-        nums[i], nums[lowest_value_index] = nums[lowest_value_index], nums[i]
+        array[i], array[lowest_value_index] = array[lowest_value_index], array[i]
+
+    return array
 
 
 # Verify it works
