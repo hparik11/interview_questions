@@ -32,11 +32,11 @@ class Solution:
                 maxJump = currIndex + nums[currIndex]
 
             if maxJump >= lastIndex:
-                ### Increase number of jumps when it reaches to final hop
+                # Increase number of jumps when it reaches to final hop
                 jumpCnt += 1
                 return jumpCnt
 
-            ### Increase number of jumps only when it reaches to maxJump value
+            # Increase number of jumps only when it reaches to maxJump value
             if currIndex == prevMaxJump:
                 # print(jumpCnt)
                 jumpCnt += 1

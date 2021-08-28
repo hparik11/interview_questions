@@ -5,15 +5,7 @@
 
 """
 146. LRU Cache
-Medium
 
-6619
-
-282
-
-Add to List
-
-Share
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
 Implement the LRUCache class:
@@ -69,6 +61,55 @@ class LRUCache:
                 del self.dict[next(iter(self.dict))]
 
         self.dict[key] = value
+
+
+class Node:
+    def __init__(self, key=-1, val=-1):
+        self.key, self.val = key, val
+        self.prev = self.next = None
+
+
+class DoubleLinkedList(object):
+    def __init__(self):
+        self.head, self.tail = Node(), Node()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+
+    def insert(self, node):
+        self.tail.prev.next = node
+        node.prev = self.tail.prev
+        node.next = self.tail
+        self.tail.prev = node
+
+    def remove(self, node):
+        if not node or node == self.tail:
+            return
+        node.prev.next = node.next
+        node.next.prev = node.prev
+
+
+class LRUCache(object):
+    def __init__(self, capacity):
+        self.dic, self.cap = {}, capacity
+        self.ddl = DoubleLinkedList()
+
+    def get(self, key):
+        if key not in self.dic:
+            return -1
+        node = self.dic[key]
+        self.ddl.remove(node)
+        self.ddl.insert(node)
+        return node.val
+
+    def put(self, key, value):
+        if key in self.dic:
+            self.ddl.remove(self.dic[key])
+        elif len(self.dic) >= self.cap:
+            self.dic.pop(self.ddl.head.next.key, None)
+            self.ddl.remove(self.ddl.head.next)
+
+        self.dic[key] = Node(key, value)
+        self.ddl.insert(self.dic[key])
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)

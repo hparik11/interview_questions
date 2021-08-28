@@ -4,15 +4,7 @@
 # @Date:   9/21/20, Mon
 """
 797. All Paths From Source to Target
-Medium
 
-1094
-
-77
-
-Add to List
-
-Share
 Given a directed acyclic graph of N nodes. Find all possible paths from node 0 to node N-1, and return them in any order.
 
 The graph is given as follows:  the nodes are 0, 1, ..., graph.length - 1.  graph[i] is a list of all nodes j for which the edge (i, j) exists.
@@ -37,6 +29,7 @@ You can print different paths in any order, but you should keep the order of nod
 from typing import List
 
 
+# Time = O(N * 2^N - 1) --> bcz there are total 2^n paths for any node
 class Solution:
     def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
 
@@ -56,6 +49,21 @@ class Solution:
 
         for each in graph[node]:
             self.dfs(graph, each, target, path + [each], paths)
+
+
+class Solution1:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        result = []
+        stack = [(0, [0])]
+        target = len(graph) - 1
+        while stack:
+            cur, route = stack.pop()
+            if cur == target:
+                result.append(route)
+            else:
+                for node in graph[cur]:
+                    stack.append((node, route + [node]))
+        return result
 
 
 if __name__ == '__main__':

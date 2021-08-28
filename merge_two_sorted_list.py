@@ -30,27 +30,15 @@ Output: 1->1->2->3->4->4
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
 
-        l3 = ListNode(-1)
-        dummy = l3
+        dummy = temp = ListNode(0)
+        while l1 is not None and l2 is not None:  # 1
 
-        while l1 and l2:
-            if l1.val <= l2.val:
-                dummy.next = l1
-                l1 = l1.next
+            if l1.val < l2.val:  # 2
+                temp.next = l1  # 3
+                l1 = l1.next  # 4
             else:
-                dummy.next = l2
+                temp.next = l2
                 l2 = l2.next
-
-            dummy = dummy.next
-
-        while l1:
-            dummy.next = l1
-            l1 = l1.next
-            dummy = dummy.next
-
-        while l2:
-            dummy.next = l2
-            l2 = l2.next
-            dummy = dummy.next
-
-        return l3.next
+            temp = temp.next
+        temp.next = l1 or l2  # 5
+        return dummy.next  # 6

@@ -4,15 +4,7 @@
 # @Date:   10/4/20, Sun
 """
 209. Minimum Size Subarray Sum
-Medium
 
-2819
-
-122
-
-Add to List
-
-Share
 Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn't one, return 0 instead.
 
 Example:

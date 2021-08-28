@@ -4,15 +4,7 @@
 # @Date:   10/16/20, Fri
 """
 253. Meeting Rooms II
-Medium
 
-2965
-
-48
-
-Add to List
-
-Share
 Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei), find the minimum number of conference rooms required.
 
 Example 1:

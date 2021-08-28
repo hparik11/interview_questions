@@ -27,5 +27,28 @@ Output: [[3,3],[-2,4]]
 """
 from typing import List
 
+import heapq
+
+
 class Solution:
+    def euclidean_distance(self, x, y):
+        return math.sqrt((x) ** 2 + (y) ** 2)
+
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
+        #         heap = []
+        #         for each in points:
+        #             # print(each)
+        #             if len(heap) == K:
+        #                 heapq.heappushpop(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
+        #             else:
+        #                 heapq.heappush(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
+
+        #             # print(heap)
+
+        #         # print(heap)
+        #         return [(x,y) for (dist,x, y) in heap]
+
+        if K >= len(points):
+            return points
+
+        return sorted(points, key=lambda i: self.euclidean_distance(i[0], i[1]))[:K]

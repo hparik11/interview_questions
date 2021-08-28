@@ -4,15 +4,7 @@
 # @Date:   9/12/20, Sat
 """
 Decode Ways
-Medium
 
-3006
-
-3055
-
-Add to List
-
-Share
 A message containing letters from A-Z is being encoded to numbers using the following mapping:
 
 'A' -> 1

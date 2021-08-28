@@ -72,6 +72,7 @@ class Solution:
                     seen.add(processed_word)
 
         frequent_words = sorted(counter.items(), key=lambda x: (-x[1], x[0]))
+        print(frequent_words)
         return [x[0] for x in frequent_words[:k]]
 
 

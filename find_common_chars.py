@@ -22,33 +22,39 @@ Note:
 A[i][j] is a lowercase letter
 """
 
-
 from collections import Counter
-    
+from typing import List
+
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:
         """
             Without Duplicates
         """
-#         MAX_CHARS = 26
-        
-#         prim_arr = [True for _ in range(MAX_CHARS)]
-        
-#         for i in range(len(A)):
-#             sec_arr = [False for _ in range(MAX_CHARS)]
-#             for ch in A[i]:
-#                 # print(ord(ch)-ord('a'))
-#                 if prim_arr[ord(ch)-ord('a')]:
-#                     sec_arr[ord(ch)-ord('a')] = True
-                
-#             prim_arr = sec_arr
-        
-#         return [chr(i + ord('a')) for i, val in enumerate(prim_arr) if val]
-        
+        #         MAX_CHARS = 26
+
+        #         prim_arr = [True for _ in range(MAX_CHARS)]
+
+        #         for i in range(len(A)):
+        #             sec_arr = [False for _ in range(MAX_CHARS)]
+        #             for ch in A[i]:
+        #                 # print(ord(ch)-ord('a'))
+        #                 if prim_arr[ord(ch)-ord('a')]:
+        #                     sec_arr[ord(ch)-ord('a')] = True
+
+        #             prim_arr = sec_arr
+
+        #         return [chr(i + ord('a')) for i, val in enumerate(prim_arr) if val]
+
         """
             With Duplicates
         """
-        common_counter = Counter(A[0])                
-        for str in A[1:]:
-            common_counter &= Counter(str)                                    
+        common_counter = Counter(A[0])
+        for string in A[1:]:
+            print(Counter(string))
+            common_counter &= Counter(string)
         return list(common_counter.elements())
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.commonChars(["cool","lock","cook"]))

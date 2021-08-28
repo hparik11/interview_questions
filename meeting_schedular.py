@@ -4,15 +4,7 @@
 # @Date:   9/21/20, Mon
 """
 1229. Meeting Scheduler
-Medium
 
-236
-
-14
-
-Add to List
-
-Share
 Given the availability time slots arrays slots1 and slots2 of two people and a meeting duration duration, return the earliest time slot that works for both of them and is of duration duration.
 
 If there is no common time slot that satisfies the requirements, return an empty array.

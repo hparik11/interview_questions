@@ -4,15 +4,7 @@
 # @Date:   9/15/20, Tue
 """
 Minimum Add to Make Parentheses Valid
-Medium
 
-810
-
-60
-
-Add to List
-
-Share
 Given a string S of '(' and ')' parentheses, we add the minimum number of parentheses ( '(' or ')', and in any positions ) so that the resulting parentheses string is valid.
 
 Formally, a parentheses string is valid if and only if:

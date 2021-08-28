@@ -5,15 +5,6 @@
 
 """
 380. Insert Delete GetRandom O(1)
-Medium
-
-2825
-
-174
-
-Add to List
-
-Share
 Implement the RandomizedSet class:
 
 bool insert(int val) Inserts an item val into the set if not present. Returns true if the item was not present, false otherwise.

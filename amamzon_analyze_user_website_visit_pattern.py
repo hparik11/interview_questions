@@ -4,15 +4,7 @@
 # @Date:   10/18/20, Sun
 """
 1152. Analyze User Website Visit Pattern
-Medium
 
-105
-
-909
-
-Add to List
-
-Share
 We are given some website visits: the user with name username[i] visited the website website[i] at time timestamp[i].
 
 A 3-sequence is a list of websites of length 3 sorted in ascending order by the time of their visits.  (The websites in a 3-sequence are not necessarily distinct.)
@@ -49,6 +41,7 @@ from typing import List
 from collections import Counter, defaultdict
 from itertools import combinations
 import heapq
+
 
 class Solution:
     def mostVisitedPattern(self, username: List[str], timestamp: List[int], website: List[str]) -> List[str]:

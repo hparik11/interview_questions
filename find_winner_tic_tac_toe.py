@@ -4,15 +4,7 @@
 # @Date:   10/4/20, Sun
 """
 Find Winner on a Tic Tac Toe Game
-Easy
 
-218
-
-79
-
-Add to List
-
-Share
 Tic-tac-toe is played by two players A and B on a 3 x 3 grid.
 
 Here are the rules of Tic-Tac-Toe:

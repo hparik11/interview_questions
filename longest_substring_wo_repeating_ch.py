@@ -28,14 +28,14 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        
+
         if not s:
             return 0
-        
+
         start = 0
         maxLen = 0
         charDict = {}
-        
+
         for i, ch in enumerate(s):
             if ch in charDict:
                 maxLen = max(maxLen, i - start)
@@ -43,12 +43,12 @@ class Solution(object):
                 charDict[ch] = i
             else:
                 charDict[ch] = i
-        
-        
+
         if start != 0:
-            return max(maxLen, i +1 - start)
+            return max(maxLen, i + 1 - start)
         else:
             return max(maxLen, i + 1)
+
 
 if __name__ == "__main__":
     print(Solution().lengthOfLongestSubstring('abcabcbb'))

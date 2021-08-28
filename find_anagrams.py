@@ -1,14 +1,6 @@
 """
 438. Find All Anagrams in a String
-Medium
 
-1847
-
-142
-
-Favorite
-
-Share
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
 Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
@@ -42,6 +34,7 @@ The substring with start index = 2 is "ab", which is an anagram of "ab".
 
 from typing import List
 
+
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         input_dict = [0] * 26
@@ -56,13 +49,14 @@ class Solution:
             input_str[ord(s[idx]) - ord('a')] += 1
             if input_str == input_dict:
                 result.append(idx + 1 - len(p))
-                
+
             if idx + 1 >= len(p):
                 input_str[ord(s[idx + 1 - len(p)]) - ord('a')] -= 1
-            
+
             idx += 1
 
-        return result 
+        return result
+
 
 if __name__ == "__main__":
     print(Solution().findAnagrams('abab', 'ab'))

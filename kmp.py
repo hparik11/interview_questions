@@ -7,6 +7,7 @@
 def knuthMorrisPrattAlgorithm(string, substring):
     # Write your code here.
     result = buildSubStringArray(substring)
+    # print(result)
 
     i = 0
     j = 0
@@ -45,5 +46,5 @@ def buildSubStringArray(substring):
 
 
 if __name__ == '__main__':
-    knuthMorrisPrattAlgorithm("aefaefaefaedaefaedaefaefa", "aefaedaefaef")
-    knuthMorrisPrattAlgorithm("abxabcabcaby", "abcaby")
+    # print(knuthMorrisPrattAlgorithm("aefaefaefaedaefaedaefaefa", "aefaedaefaef"))
+    print(knuthMorrisPrattAlgorithm("abxabcabcaby", "abcaby"))

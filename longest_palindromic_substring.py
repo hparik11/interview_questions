@@ -5,15 +5,6 @@
 
 """
 5. Longest Palindromic Substring
-Medium
-
-7644
-
-563
-
-Add to List
-
-Share
 Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
 
 Example 1:

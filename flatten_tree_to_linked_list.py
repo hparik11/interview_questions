@@ -26,6 +26,7 @@ The flattened tree should look like:
 
 """
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -33,9 +34,21 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def flatten(self, root: TreeNode) -> None:
-        """
-        Do not return anything, modify root in-place instead.
-        """
-        
+        if not root:
+            return
+        stack = []
+        node = root
+        while True:
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+            if stack:
+                node.right = stack.pop()
+                node.left = None
+                node = node.right
+            else:
+                break

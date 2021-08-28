@@ -1,41 +1,94 @@
+"""
+300. Longest Increasing Subsequence
+
+Given an integer array nums, return the length of the longest strictly increasing subsequence.
+
+A subsequence is a sequence that can be derived from an array by deleting some or no elements without changing the order of the remaining elements. For example, [3,6,2,7] is a subsequence of the array [0,3,1,6,2,2,7].
+
+
+
+Example 1:
+
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+Example 2:
+
+Input: nums = [0,1,0,3,2,3]
+Output: 4
+Example 3:
+
+Input: nums = [7,7,7,7,7,7,7]
+Output: 1
+"""
+
 from typing import List
 
 
 def lengthOfLIS(nums: List[int]) -> int:
-    size = len(nums)
-    if size == 0:
-        return 0
-    subs = [(0, 0)] * size
-    subs[0] = (1, float('-inf'))
-    final_max = float('-inf')
+    """
 
-    for i in range(1, size):
-        maximum = 0
-        parent = float('-inf')
-        for j in range(0, i):
-            if nums[j] < nums[i] and maximum < subs[j][0]:
-                maximum, parent = subs[j][0], nums[j]
-        if final_max < maximum + 1:
-            final_max = maximum + 1
-        subs[i] = (maximum + 1, parent)
+    Complexity Analysis
 
-    # i = len(subs) - 1
-    # j = i - 1
-    # seqs = []
-    # while j > 0:
-    #     # print(subs[i][0])
-    #     if subs[j][0] == subs[i][0] - 1:
-    #         i -= 1
-    #         if len(seqs) == 0:
-    #             seqs.insert(0, nums[i])
-    #         seqs.insert(0, nums[i - 1])
-    #
-    #         if final_max == len(seqs):
-    #             break
-    #     j -= 1
-    # print(nums)
-    # print(seqs)
-    return final_max
+    Given N as the length of nums,
+
+    Time complexity: O(N^2)
+
+    Space complexity: O(N)
+
+    The only extra space we use relative to input size is the dp array, which is the same length as nums.
+
+    """
+    dp = [1] * len(nums)
+    for i in range(1, len(nums)):
+        for j in range(i):
+            if nums[i] > nums[j]:
+                dp[i] = max(dp[i], dp[j] + 1)
+
+    return max(dp)
+
+
+def lengthOfLIS1(self, nums: List[int]) -> int:
+    """
+    Intuition
+
+    In the previous approach, when we have an element num that is not greater than all the elements in sub, we perform a linear scan to find the first element in sub that is greater than or equal to num. Since sub is in sorted order, we can use binary search instead to greatly improve the efficiency of our algorithm.
+
+    Algorithm
+
+    Initialize an array sub which contains the first element of nums.
+
+    Iterate through the input, starting from the second element. For each element num:
+
+    If num is greater than any element in sub, then add num to sub.
+    Otherwise, perform a binary search in sub to find the smallest element that is greater than or equal to num. Replace that element with num.
+    Return the length of sub
+
+
+    Complexity Analysis
+
+    Given N as the length of nums,
+
+    Time complexity: O(N⋅log(N))
+
+    Space complexity: O(N)
+
+    When the input is strictly increasing, the sub array will be the same size as the input.
+    """
+    sub = []
+    for num in nums:
+        i = bisect_left(sub, num)
+        print(i)
+
+        # If num is greater than any element in sub
+        if i == len(sub):
+            sub.append(num)
+
+        # Otherwise, replace the first element in sub greater than or equal to num
+        else:
+            sub[i] = num
+
+    return len(sub)
 
 
 if __name__ == "__main__":

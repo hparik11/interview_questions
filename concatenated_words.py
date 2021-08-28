@@ -4,15 +4,7 @@
 # @Date:   10/4/20, Sun
 """
 Concatenated Words
-Hard
 
-868
-
-117
-
-Add to List
-
-Share
 Given a list of words (without duplicates), please write a program that returns all concatenated words in the given list of words.
 A concatenated word is defined as a string that is comprised entirely of at least two shorter words in the given array.
 
@@ -61,7 +53,7 @@ class Trie:
                 if count > 1:
                     return True
                 count += 1
-                print(count)
+                # print(count)
                 if self.search(word, start, end, count):
                     return True
             start += 1

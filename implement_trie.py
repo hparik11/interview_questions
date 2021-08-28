@@ -25,6 +25,7 @@ class TrieNode(object):
         self.val = val
         self.children = {}
 
+
 class Trie:
 
     def __init__(self):
@@ -32,7 +33,6 @@ class Trie:
         Initialize your data structure here.
         """
         self.root = TrieNode()
-        
 
     def insert(self, word: str) -> None:
         """
@@ -42,9 +42,9 @@ class Trie:
         for ch in word:
             if ch not in node.children:
                 node.children[ch] = TrieNode(ch)
-            
+
             node = node.children[ch]
-        
+
         node.children['/'] = TrieNode('/')
 
     def search(self, word: str) -> bool:
@@ -59,9 +59,8 @@ class Trie:
                 continue
             else:
                 return False
-        
+
         return True
-        
 
     def startsWith(self, prefix: str) -> bool:
         """
@@ -75,7 +74,7 @@ class Trie:
                 continue
             else:
                 return False
-        
+
         return True
 
 

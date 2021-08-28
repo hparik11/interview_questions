@@ -45,6 +45,7 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     def insertIntoMaxTree(self, root: TreeNode, val: int) -> TreeNode:
         if val > root.val:

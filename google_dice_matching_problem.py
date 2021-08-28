@@ -4,16 +4,15 @@ def dice(word, die):
         die - List[Char]
     """
     die = [tuple(x) for x in die]
+    print(die)
 
     def helper(word, visited):
         if word == "":
             return True
-        
-        topCharacter = word[0]
 
         for d in die:
             if d not in visited:
-                for topCharacter in d:
+                for _ in d:
                     visited.add(d)
                     if helper(word[1:], visited):
                         return True
@@ -25,6 +24,6 @@ def dice(word, die):
                 
 
 # Tests
-# print(dice("hello", [['a', 'l', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'h', 'e', 'f'], ['a', 'b', 'c', 'd', 'o', 'f'], ['a', 'b', 'c', 'l', 'e', 'f']]))
+print(dice("hello", [['a', 'l', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'h', 'e', 'f'], ['a', 'b', 'c', 'd', 'o', 'f'], ['a', 'b', 'c', 'l', 'e', 'f']]))
 # dice("hello", [['a', 'l', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'h', 'e', 'f'], ['a', 'b', 'c', 'd', 'o', 'f'], ['a', 'b', 'c', 'l', 'e', 'f']])
 print(dice("aaaa", [['a', 'a','a','a','a','a'], ['b', 'b','b','b','b','b',], ['a', 'b', 'c', 'd', 'e', 'f'], ['a', 'b', 'c', 'd', 'e', 'f']]))

@@ -6,15 +6,7 @@
 
 """
 Combination Sum
-Medium
 
-4338
-
-128
-
-Add to List
-
-Share
 Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 
 The same repeated number may be chosen from candidates unlimited number of times.
@@ -55,6 +47,7 @@ class Solution:
                 return True
             if target < 0:
                 return
+
             for i in range(start, len(candidates)):
                 dfs(target - candidates[i], i, candidates, path + [candidates[i]], paths)
 

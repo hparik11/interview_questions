@@ -5,15 +5,6 @@
 
 """
 56. Merge Intervals
-Medium
-
-5037
-
-317
-
-Add to List
-
-Share
 Given a collection of intervals, merge all overlapping intervals.
 
 Example 1:

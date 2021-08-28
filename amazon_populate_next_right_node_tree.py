@@ -4,13 +4,6 @@
 # @Date:   10/3/20, Sat
 """
 Populating Next Right Pointers in Each Node II
-Medium
-
-1779
-
-186
-
-Add to List
 
 Share
 Given a binary tree

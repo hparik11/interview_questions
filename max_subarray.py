@@ -14,13 +14,14 @@ If you have figured out the O(n) solution, try coding another solution using the
 """
 from typing import List
 
+
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
         if len(nums) <= 0:
             return -1
         currSum = nums[0]
         finalSum = nums[0]
-        
+
         for i, num in enumerate(nums):
             if i == 0:
                 continue
@@ -30,10 +31,11 @@ class Solution:
                 currSum = num
             else:
                 currSum += num
-            
+
             if currSum > finalSum:
                 finalSum = currSum
         return finalSum
+
 
 if __name__ == "__main__":
     # print(Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))

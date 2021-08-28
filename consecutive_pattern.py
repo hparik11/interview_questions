@@ -5,11 +5,7 @@
 
 """
 5499. Detect Pattern of Length M Repeated K or More Times
-User Accepted:0
-User Tried:6
-Total Accepted:0
-Total Submissions:6
-Difficulty:Easy
+
 Given an array of positive integers arr,  find a pattern of length m that is repeated k or more times.
 
 A pattern is a subarray (consecutive sub-sequence) that consists of one or more values, repeated multiple times consecutively without overlapping. A pattern is defined by its length and the number of repetitions.
@@ -74,4 +70,4 @@ if __name__ == '__main__':
     print(s.containsPattern([1, 2, 4, 4, 4, 4], 1, 3))
     print(s.containsPattern([1, 2, 4, 5, 4, 5], 2, 2))
     print(s.containsPattern([2, 2, 2, 2], m=2, k=3))
-    print(s.containsPattern([1,2,1,2,1,1,1,3], m = 2, k = 2))
+    print(s.containsPattern([1, 2, 1, 2, 1, 1, 1, 3], m=2, k=2))

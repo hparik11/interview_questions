@@ -4,15 +4,7 @@
 # @Date:   9/24/20, Thu
 """
 210. Course Schedule II
-Medium
 
-2708
-
-143
-
-Add to List
-
-Share
 There are a total of n courses you have to take labelled from 0 to n - 1.
 
 Some courses may have prerequisites, for example, if prerequisites[i] = [ai, bi] this means you must take the course bi before the course ai.
@@ -43,45 +35,54 @@ Output: [0]
 from typing import List
 import collections
 
+from collections import defaultdict
+
+
+class Graph:
+    def __init__(self):
+        self.adjacency_matrix = defaultdict(list)
+
+    def add_edge(self, u, v):
+        self.adjacency_matrix[u].append(v)
+
 
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
 
-        def add_edge(graph, u, v):
-            graph[u].append(v)
+        graph = Graph()
 
-        def dfs(node, graph, visited, visiting, stack):
-            if visited[node]:
+        for each in prerequisites:
+            graph.add_edge(each[0], each[1])
+
+        def dfs(adjacency_matrix, visited, visiting, course, order_of_courses):
+            if course in visited:
                 return True
-            if visiting[node]:
+
+            if course in visiting:
                 return False
 
-            visiting[node] = True
+            visiting[course] = True
 
-            for preq in graph[node]:
-                if not dfs(preq, graph, visited, visiting, stack):
+            for prereq in adjacency_matrix[course]:
+                if not dfs(adjacency_matrix, visited, visiting, prereq, order_of_courses):
                     return False
 
-            visited[node] = True
-            visiting[node] = False
-            stack.append(node)
+            visited[course] = True
+            visiting[course] = False
+
+            order_of_courses.append(course)
 
             return True
 
-        graph = collections.defaultdict(list)
+        visited = {}
+        visiting = {}
+        order_of_courses = []
 
-        for each in prerequisites:
-            add_edge(graph, each[0], each[1])
-
-        visited = {i: False for i in range(numCourses)}
-        visiting = {i: False for i in range(numCourses)}
-        stack = []
-
-        for key in range(numCourses):
-            if not dfs(key, graph, visited, visiting, stack):
+        for course in range(numCourses):
+            if not dfs(graph.adjacency_matrix, visited, visiting, course, order_of_courses):
                 return []
 
-        return stack
+        return order_of_courses
 
 
 if __name__ == '__main__':
