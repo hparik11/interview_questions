@@ -37,7 +37,7 @@ Return:
 #         self.right = right
 class Solution:
     def pathSum(self, root: TreeNode, sum: int) -> List[List[int]]:
-        if root == None:
+        if root is None:
             return []
 
         path = [root.val]

@@ -4,15 +4,7 @@
 # @Date:   9/27/20, Sun
 """
 Valid Sudoku
-Medium
 
-1913
-
-480
-
-Add to List
-
-Share
 Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
 
 Each row must contain the digits 1-9 without repetition.
@@ -96,6 +88,7 @@ class Solution:
 
                     box_map[box_index][board[i][j]] = True
 
+        print(row_map)
         return True
 
 

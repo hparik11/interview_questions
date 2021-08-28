@@ -31,15 +31,17 @@ class Solution:
         print(trie.root)
         visited = [[False for _ in row] for row in board]
         finalWords = {}
-        for i in range(len(board)):
-            for j in range(len(board[i])):
-                self.explore(i, j, board, visited, trie.root, finalWords)
+        r = len(board)
+        c = len(board[0])
+
+        for i in range(r):
+            for j in range(c):
+                self.dfs(i, j, board, visited, trie.root, finalWords, r, c)
 
         return list(finalWords.keys())
 
-    def explore(self, i, j, board, visited, trieNode, finalWords):
-        r = len(board)
-        c = len(board[0])
+    def dfs(self, i, j, board, visited, trieNode, finalWords, r, c):
+
         if visited[i][j]:
             return
         letter = board[i][j]
@@ -54,12 +56,12 @@ class Solution:
         for x, y in [(-1, 0), (1, 0), (0, -1), (0, 1), (1, 1), (1, -1), (-1, 1), (-1, -1)]:
             x_1, y_1 = i + x, j + y
             if self.isValid(x_1, y_1, r, c):
-                self.explore(x_1, y_1, board, visited, trieNode, finalWords)
+                self.dfs(x_1, y_1, board, visited, trieNode, finalWords, r, c)
 
         visited[i][j] = False
 
     def isValid(self, i, j, r, c):
-        return i >= 0 and j >= 0 and i < r and j < c
+        return 0 <= i < r and 0 <= j < c
 
 
 class Trie:

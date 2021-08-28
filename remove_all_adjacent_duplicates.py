@@ -4,14 +4,6 @@
 # @Date:   9/21/20, Mon
 """
 1209. Remove All Adjacent Duplicates in String II
-Medium
-
-690
-
-17
-
-Add to List
-
 Share
 Given a string s, a k duplicate removal consists of choosing k adjacent and equal letters from s and removing them causing the left and the right side of the deleted substring to concatenate together.
 

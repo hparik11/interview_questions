@@ -24,7 +24,7 @@ class Solution:
         cnt = 1
         while cnt < m - 1:
             first = first.next
-            print(first.val)
+            # print(first.val)
             cnt += 1
 
         prev = None

@@ -4,15 +4,7 @@
 # @Date:   10/17/20, Sat
 """
 856. Score of Parentheses
-Medium
 
-1361
-
-47
-
-Add to List
-
-Share
 Given a balanced parentheses string S, compute the score of the string based on the following rule:
 
 () has score 1

@@ -4,15 +4,7 @@
 # @Date:   10/3/20, Sat
 """
 Prison Cells After N Days
-Medium
 
-785
-
-1065
-
-Add to List
-
-Share
 There are 8 prison cells in a row, and each cell is either occupied or vacant.
 
 Each day, whether the cell is occupied or vacant changes according to the following rules:

@@ -17,6 +17,7 @@ Output: 23
 
 """
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
@@ -24,25 +25,28 @@ class TreeNode:
         self.left = None
         self.right = None
 
+
 class Solution:
     total = 0
+
     def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
-            
+
         def traverse(node):
             if not node:
                 return
-            
+
             if L <= node.val <= R:
                 self.total += node.val
-            
+
             if node.left:
                 traverse(node.left)
             if node.right:
                 traverse(node.right)
-    
+
         traverse(root)
 
         return self.total
+
 
 if __name__ == "__main__":
     print(Solution().rangeSumBST())

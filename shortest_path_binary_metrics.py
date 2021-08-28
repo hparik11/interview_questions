@@ -4,15 +4,7 @@
 # @Date:   10/13/20, Tue
 """
 1091. Shortest Path in Binary Matrix
-Medium
 
-610
-
-45
-
-Add to List
-
-Share
 In an N by N square grid, each cell is either empty (0) or blocked (1).
 
 A clear path from top-left to bottom-right has length k if and only if it is composed of cells C_1, C_2, ..., C_k such that:

@@ -41,11 +41,13 @@ class StockSpanner:
                 prev_price, prev_span = self.stack.pop()
                 new_span += prev_span
             self.stack.append((price, new_span))
-            print(self.stack)
+
+        print(self.stack)
         return self.stack[-1][1]
 
 
 # Your StockSpanner object will be instantiated and called as such:
+
 obj = StockSpanner()
 print(obj.next(100))
 print(obj.next(80))

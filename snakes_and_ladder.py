@@ -5,15 +5,6 @@
 
 """
 909. Snakes and Ladders
-Medium
-
-417
-
-917
-
-Add to List
-
-Share
 On an N x N board, the numbers from 1 to N*N are written boustrophedonically starting from the bottom left of the board, and alternating direction each row.  For example, for a 6 x 6 board, the numbers are written as follows:
 
 
@@ -49,4 +40,3 @@ It can be shown that you need at least 4 moves to reach the N*N-th square, so th
 
 class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
-        pass

@@ -4,15 +4,7 @@
 # @Date:   9/20/20, Sun
 """
 981. Time Based Key-Value Store
-Medium
 
-853
-
-108
-
-Add to List
-
-Share
 Create a timebased key-value store class TimeMap, that supports two operations.
 
 1. set(string key, string value, int timestamp)

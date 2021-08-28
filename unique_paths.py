@@ -4,15 +4,6 @@
 # @Date:   9/11/20, Fri
 """
 62. Unique Paths
-Medium
-
-3712
-
-218
-
-Add to List
-
-Share
 A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
 The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
@@ -44,8 +35,7 @@ class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         if m == 1 and n == 1:
             return 1
-        dp = [[0 for i in range(n)] for j in range(m)]
-        print(dp)
+        dp = [[0 for _ in range(n)] for _ in range(m)]
 
         for i in range(m):
             for j in range(n):

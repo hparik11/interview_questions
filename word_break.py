@@ -4,15 +4,7 @@
 # @Date:   9/20/20, Sun
 """
 139. Word Break
-Medium
 
-4965
-
-246
-
-Add to List
-
-Share
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words,
 determine if s can be segmented into a space-separated sequence of one or more dictionary words.
 
@@ -54,20 +46,6 @@ class Trie:
 
 
 class Solution:
-    """
-    def wordBreak(self, s, wordDict):
-
-        dp = [False for i in range(len(s) + 1)] #(1)
-        dp[0] = True
-
-        for i in range(len(s) + 1): #(2)
-            for j in range(i):
-                if dp[j] and s[j:i] in wordDict: #(3)
-                    dp[i] = True
-                    break #(4)
-
-        return dp[len(s)] #(5)
-    """
 
     def wordBreak(self, s, wordDict):
 
@@ -100,6 +78,8 @@ class Solution:
                     if dfs(string[i:], wordSet, dp):
                         dp[string[i:]] = True
                         return True
+
+                    dp[string[i:]] = False
 
             dp[string] = False
             return False
@@ -134,3 +114,5 @@ if __name__ == '__main__':
     s = Solution()
     print(s.wordBreak("leetcode", ["leet", "code", "coe"]))
     print(s.wordBreak("catsandog", ["cats", "dogs", "sand", "an", "cat"]))
+    print(s.wordBreak2("catsandog", ["cats", "dogs", "sand", "an", "cat"]))
+

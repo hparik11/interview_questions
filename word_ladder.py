@@ -4,15 +4,7 @@
 # @Date:   9/10/20, Thu
 """
 Word Ladder
-Medium
 
-3538
-
-1250
-
-Add to List
-
-Share
 Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
 
 Only one letter can be changed at a time.
@@ -50,6 +42,7 @@ Explanation: The endWord "cog" is not in wordList, therefore no possible transfo
 from typing import List
 
 
+# Time Complexity: O({M}^2 * N) where M is the length of each word and N is the total number of words in the input word list.
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         if endWord not in wordList:

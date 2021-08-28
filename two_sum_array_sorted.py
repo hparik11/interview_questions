@@ -19,7 +19,6 @@ def twoSum(input_array, target):
 class Test1(unittest.TestCase):
     dataT = [([-1, 2, 3, 4, 5, 6, 7], 12)]
 
-
     def test_unique(self):
         # true check
         for test_array, target in self.dataT:

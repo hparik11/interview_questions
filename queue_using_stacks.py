@@ -6,7 +6,6 @@ class MyQueue:
         """
         self.stack1 = []
         self.stack2 = []
-        
 
     def push(self, x: int) -> None:
         """
@@ -23,7 +22,7 @@ class MyQueue:
             del self.stack2[-1]
             return val
         elif self.stack1:
-            for index in range(len(self.stack1)-1, -1, -1):
+            for index in range(len(self.stack1) - 1, -1, -1):
                 self.stack2.append(self.stack1[index])
                 del self.stack1[index]
             val = self.stack2[-1]
@@ -39,20 +38,18 @@ class MyQueue:
         if self.stack2:
             return self.stack2[-1]
         elif self.stack1:
-            for index in range(len(self.stack1)-1, -1, -1):
+            for index in range(len(self.stack1) - 1, -1, -1):
                 self.stack2.append(self.stack1[index])
                 del self.stack1[index]
             return self.stack2[-1]
         else:
             return None
-        
 
     def empty(self) -> bool:
         """
         Returns whether the queue is empty.
         """
         return len(self.stack2) == 0 and len(self.stack1) == 0
-
 
 
 # Your MyQueue object will be instantiated and called as such:

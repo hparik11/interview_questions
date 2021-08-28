@@ -4,15 +4,7 @@
 # @Date:   9/27/20, Sun
 """
 245. Shortest Word Distance III
-Medium
 
-215
-
-74
-
-Add to List
-
-Share
 Given a list of words and two words word1 and word2, return the shortest distance between these two words in the list.
 
 word1 and word2 may be the same and they represent two individual words in the list.

@@ -47,6 +47,7 @@ class LinkedList:
             current = current.next
         return nodes
 
+
 test1 = LinkedList(0).addMany([1, 2, 3, 4, 5, 6, 7, 8, 9])
 
 print(removeKthNodeFromEnd(test1, 8).getNodesInArray())

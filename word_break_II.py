@@ -4,15 +4,7 @@
 # @Date:   10/17/20, Sat
 """
 140. Word Break II
-Hard
 
-2537
-
-418
-
-Add to List
-
-Share
 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.
 
 Note:
@@ -87,9 +79,9 @@ class Solution:
 
         def backtrack(s, idx, path, paths):
             # Before we backtrack, we check whether the remaining string
-            # can be splitted by using the dictionary,
+            # can be split by using the dictionary,
             # in this way we can decrease unnecessary computation greatly.
-            if dp[idx+len(s)]: # if word break possible then only proceed
+            if dp[idx + len(s)]:  # if word break possible then only proceed
                 if not s:
                     paths.append(' '.join(path))
                 else:
@@ -105,8 +97,36 @@ class Solution:
         backtrack(s, 0, path, paths)
         return paths
 
+    def wordBreak2(self, string, wordDict):
+
+        def dfs(string, wordSet, dp):
+            if string in dp:  # memorize
+                return dp[string]
+
+            if not string:
+                return [""]
+
+            if string in wordSet:
+                dp[string] = [string]
+                return [string]
+
+            res = []
+
+            for i in range(1, len(string)):
+                if string[:i] in wordSet:
+                    for word in dfs(string[i:], wordSet, dp):
+                        res.append(string[:i] + " " + word)
+
+            dp[string] = res
+            return res
+
+        dp = {}
+        res = dfs(string, set(wordDict), dp)
+        return res
+
 
 if __name__ == '__main__':
     s = Solution()
     # print(s.wordBreak("leetcode", ["leet", "code", "coe"]))
     print(s.wordBreak("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"]))
+    print(s.wordBreak2("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"]))

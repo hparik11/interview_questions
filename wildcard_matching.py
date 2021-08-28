@@ -5,15 +5,6 @@
 
 """
 44. Wildcard Matching
-Hard
-
-2275
-
-114
-
-Add to List
-
-Share
 Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
 
 '?' Matches any single character.
@@ -70,8 +61,6 @@ class Solution:
         for j in range(1, len(p) + 1):
             if p[j - 1] == '*':
                 dp[0][j] = True
-            else:
-                break
 
         for i in range(1, len(s) + 1):
             for j in range(1, len(p) + 1):
