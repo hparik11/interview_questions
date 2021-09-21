@@ -40,6 +40,9 @@ class MyCalendar(object):
             return self.root.insert(start, end)
 
 
+import bisect
+
+
 # O(N^2)
 class MyCalendar1:
 
