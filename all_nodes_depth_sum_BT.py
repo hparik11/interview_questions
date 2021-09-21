@@ -26,42 +26,40 @@ class BinaryTree:
 
 class Solution1:
     # Time O(nlong) | Space O(n)
-    @staticmethod
-    def allKindsOfNodeDepths(root):
+    def allKindsOfNodeDepths(self, root):
         # Write your code here.
+
+        def findDepth(node, depth):
+            if node is None:
+                return 0
+            return depth + findDepth(node.left, depth + 1) + findDepth(node.right, depth + 1)
+
         stack = [root]
-        depthSum = 0
+        depth_sum = 0
         while len(stack) > 0:
             node = stack.pop()
-            depthSum += findDepth(node, 0)
+            depth_sum += findDepth(node, 0)
             if node.left:
                 stack.append(node.left)
             if node.right:
                 stack.append(node.right)
 
-        return depthSum
-
-    @staticmethod
-    def findDepth(node, depth):
-        if node is None:
-            return 0
-        return depth + findDepth(node.left, depth + 1) + findDepth(node.right, depth + 1)
+        return depth_sum
 
 
 class Solution2:
     # O(N) time and O(H) space
-    @staticmethod
-    def allKindsOfNodeDepths(root):
+    def allKindsOfNodeDepths(self, root):
         # Write your code here.
-        return getTreeInfo(root).sumOfAllDepths
+        return self.getTreeInfo(root).sumOfAllDepths
 
-    @staticmethod
-    def getTreeInfo(tree):
+    @classmethod
+    def getTreeInfo(cls, tree):
         if tree is None:
             return TreeInfo(0, 0, 0)
 
-        leftTreeInfo = getTreeInfo(tree.left)
-        rightTreeInfo = getTreeInfo(tree.right)
+        leftTreeInfo = cls.getTreeInfo(tree.left)
+        rightTreeInfo = cls.getTreeInfo(tree.right)
 
         sumOfLeftDepths = leftTreeInfo.sumOfDepths + leftTreeInfo.numNodesInTree
         sumOfRightDepths = rightTreeInfo.sumOfDepths + rightTreeInfo.numNodesInTree

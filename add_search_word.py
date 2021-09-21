@@ -48,10 +48,11 @@ search("b..") -> true
 
 #         node.children['/'] = TrieNode('/')
 
-#     def search(self, word: str) -> bool:
-#         """
-#         Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
-#         """
+#       def search(self, word: str) -> bool:
+#           """
+#           Returns if the word is in the data structure. A word could contain the dot
+#           character '.' to represent any one letter.
+#           """
 
 #         for i in range(len(word)):
 #             if word[i] != '.':

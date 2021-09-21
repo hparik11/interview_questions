@@ -59,7 +59,7 @@ class Solution:
             val = 0
             for i in range(pos, len(num)):  # use for loop
                 val = val * 10 + ord(num[i]) - ord('0')
-                if pos == 0:  # corner case, no operation before first digit
+                if i == 0:  # corner case, no operation before first digit
                     self.dfs(num, target, i + 1, curr_total + val, val, expr + str(val), result)
                 else:
                     # case '+'

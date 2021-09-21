@@ -39,7 +39,7 @@ class Solution:
         for firstWord, secondWord in zip(words, words[1:]):
             i = 0
             j = 0
-            areAllCharactersMatch = True
+            are_all_characters_match = True
             while i < len(firstWord) and j < len(secondWord):
                 c = firstWord[i]
                 d = secondWord[j]
@@ -49,14 +49,14 @@ class Solution:
                         indegree[d] += 1
                         adj_list[c].append(d)
 
-                    areAllCharactersMatch = False
+                    are_all_characters_match = False
                     break
 
                 i += 1
                 j += 1
 
             # Check that second word isn't a prefix of first word.
-            if areAllCharactersMatch and len(secondWord) < len(firstWord):
+            if are_all_characters_match and len(secondWord) < len(firstWord):
                 return ""
 
         # Step 2: We need to repeatedly pick off nodes with an indegree of 0.
