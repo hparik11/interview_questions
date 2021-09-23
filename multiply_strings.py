@@ -6,15 +6,7 @@
 @Date     : 7/29/21 12:55 PM
 
 43. Multiply Strings
-Medium
 
-2837
-
-1114
-
-Add to List
-
-Share
 Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
 
 Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.

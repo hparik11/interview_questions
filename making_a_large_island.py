@@ -32,9 +32,11 @@ Output: 4
 Explanation: Can't change any 0 to 1, only one island with area = 4.
 """
 
+from collections import deque
+
 
 class Solution:
-    def largestIsland(self, grid: List[List[int]]) -> int:
+    def largestIsland(self, grid) -> int:
 
         N = len(grid)
         DIRECTIONS = [(-1, 0), (0, -1), (0, 1), (1, 0)]
@@ -72,16 +74,15 @@ class Solution:
         largest_area = 1
         for row in range(N):
             for column in range(N):
-                if grid[row][column] == 1:
-                    continue
-                neighbours = set()
-                large_area = 1
-                for direction in DIRECTIONS:
-                    r, c = row + direction[0], column + direction[1]
-                    if r in range(N) and c in range(N) and grid[r][c] == 1 and address[(r, c)] not in neighbours:
-                        neighbours.add(address[(r, c)])
-                        large_area += area[address[(r, c)]]
-                largest_area = max(largest_area, large_area)
+                if grid[row][column] == 0:
+                    neighbours = set()
+                    large_area = 1
+                    for direction in DIRECTIONS:
+                        r, c = row + direction[0], column + direction[1]
+                        if r in range(N) and c in range(N) and grid[r][c] == 1 and address[(r, c)] not in neighbours:
+                            neighbours.add(address[(r, c)])
+                            large_area += area[address[(r, c)]]
+                    largest_area = max(largest_area, large_area)
 
         return largest_area
 

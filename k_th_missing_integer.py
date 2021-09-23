@@ -35,7 +35,7 @@ Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing posi
 
 
 class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
+    def findKthPositive(self, arr, k: int) -> int:
 
         positive_integer = 1
         array_ptr = 0

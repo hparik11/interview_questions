@@ -35,6 +35,8 @@ Output: false
 Explanation: There is no way to reach at index 1 with value 0.
 """
 
+from typing import List
+
 
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:

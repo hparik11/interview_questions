@@ -6,18 +6,14 @@
 @Date     : 8/6/21 5:56 PM
 
 720. Longest Word in Dictionary
-Medium
 
-1030
+Given an array of strings words representing an English Dictionary,
+return the longest word in words that can be built one character
+at a time by other words in words.
 
-1158
-
-Add to List
-
-Share
-Given an array of strings words representing an English Dictionary, return the longest word in words that can be built one character at a time by other words in words.
-
-If there is more than one possible answer, return the longest word with the smallest lexicographical order. If there is no answer, return the empty string.
+If there is more than one possible answer, return the longest word
+with the smallest lexicographical order. If there is no answer,
+return the empty string.
 
 
 

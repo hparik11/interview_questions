@@ -29,8 +29,8 @@ class Solution:
 
     # O(nk) time, bubble sort idea, TLE
     def findKthLargest2(self, nums, k):
-        for i in xrange(k):
-            for j in xrange(len(nums) - i - 1):
+        for i in range(k):
+            for j in range(len(nums) - i - 1):
                 if nums[j] > nums[j + 1]:
                     # exchange elements, time consuming
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]

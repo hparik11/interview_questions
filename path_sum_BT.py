@@ -23,12 +23,14 @@ Given the below binary tree and sum = 22,
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
 """
 
+
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 """
 Recursive

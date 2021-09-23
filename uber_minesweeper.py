@@ -6,15 +6,7 @@
 @Date     : 8/20/21 11:47 PM
 
 529. Minesweeper
-Medium
 
-1033
-
-719
-
-Add to List
-
-Share
 Let's play the minesweeper game (Wikipedia, online game)!
 
 You are given an m x n char matrix board representing the game board where:

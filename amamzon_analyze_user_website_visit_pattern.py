@@ -36,11 +36,10 @@ The 3-sequence ("home", "maps", "home") was visited at least once by 1 user.
 The 3-sequence ("cart", "maps", "home") was visited at least once by 1 user.
 """
 
-from typing import List
-
-from collections import Counter, defaultdict
-from itertools import combinations
 import heapq
+from collections import defaultdict
+from itertools import combinations
+from typing import List
 
 
 class Solution:

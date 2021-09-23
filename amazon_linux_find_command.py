@@ -77,7 +77,6 @@ class FileSystem:
                 if r.isDirectory:
                     traverseUtil(r, result)
                 else:
-
                     for _f in self.filters:
                         if _f.apply(r):
                             print("result:", result)

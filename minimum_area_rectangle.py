@@ -6,15 +6,7 @@
 @Date     : 8/17/21 10:49 AM
 
 939. Minimum Area Rectangle
-Medium
 
-1101
-
-190
-
-Add to List
-
-Share
 You are given an array of points in the X-Y plane points where points[i] = [xi, yi].
 
 Return the minimum area of a rectangle formed from these points, with sides parallel to the X and Y axes. If there is not any such rectangle, return 0.

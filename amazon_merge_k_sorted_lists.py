@@ -33,6 +33,8 @@ Input: lists = [[]]
 Output: []
 """
 
+from typing import List
+
 
 class Solution(object):
     """

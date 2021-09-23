@@ -35,10 +35,12 @@ Input Explanation: From the head of A, it reads as [2,6,4]. From the head of B, 
 Explanation: The two lists do not intersect, so return null.
 """
 
+
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
+
 
 class Solution(object):
     def getIntersectionNode(self, headA, headB):

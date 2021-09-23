@@ -20,7 +20,6 @@ Input:
 Output:
 [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 """
-import heapq
 from typing import List
 
 

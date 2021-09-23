@@ -23,6 +23,8 @@ The total probability the knight stays on the board is 0.0625.
 """
 
 from copy import deepcopy
+
+
 class Solution:
     def knightProbability(self, N: int, K: int, r: int, c: int) -> float:
         dp = [[0 for _ in range(N)] for _ in range(N)]

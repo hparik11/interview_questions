@@ -5,9 +5,11 @@
 @Author   : Harsh Parikh
 @Date     : 7/20/21 5:24 PM
 
-You're given a 2d matrix, where '1' means an amazon sorting center, and 0 means a normal road. Amazon needs to open a new sorting center, and its must be as far as it can from other sorting centers.
+You're given a 2d matrix, where '1' means an amazon sorting center, and 0 means a normal road.
+Amazon needs to open a new sorting center, and its must be as far as it can from other sorting centers.
 
-Write a function to return the max distance from all sorting centers. Here, distance means Manhattan distance, i.e. distance(p1, p2) = |x1 - x2| + |y1 - y2| where p is a point (x, y).
+Write a function to return the max distance from all sorting centers. Here, distance means Manhattan distance,
+i.e. distance(p1, p2) = |x1 - x2| + |y1 - y2| where p is a point (x, y).
 
 Example
 Input:
@@ -36,11 +38,13 @@ Explanation: (2,2) is farthest from (0,0) and distance is |2-0| + |2-0| = 4
 
 547. Number of Provinces
 
-There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
+There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b,
+and city b is connected directly with city c, then city a is connected indirectly with city c.
 
 A province is a group of directly or indirectly connected cities and no other cities outside of the group.
 
-You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly connected, and isConnected[i][j] = 0 otherwise.
+You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the ith city and the jth city are directly
+connected, and isConnected[i][j] = 0 otherwise.
 
 Return the total number of provinces.
 
@@ -112,7 +116,7 @@ class Solution1(object):
 
 
 class Solution:
-    def amazonphonescreen(arr):
+    def amazonphonescreen(self, arr):
         centers = []
         output = 0
         for i in range(len(arr)):

@@ -35,12 +35,11 @@ def buildSubStringArray(substring):
             i += 1
             j += 1
         else:
-            if alist[j - 1] == -1:
+            if j > 0 and alist[j - 1] == -1:
                 j = 0
                 i += 1
             else:
                 j = alist[j - 1] + 1
-                alist[i] = j
 
     return alist
 
