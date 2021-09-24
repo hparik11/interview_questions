@@ -6,15 +6,7 @@
 @Date     : 7/14/21 10:45 PM
 
 379. Design Phone Directory
-Medium
 
-244
-
-343
-
-Add to List
-
-Share
 Design a phone directory that initially has maxNumbers empty slots that can store numbers. The directory should store numbers, check if a certain slot is empty or not, and empty a given slot.
 
 Implement the PhoneDirectory class:

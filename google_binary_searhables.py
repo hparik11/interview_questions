@@ -48,7 +48,6 @@ class Solution:
     def find_binary_searchable_elements(self, array):
 
         leftMaxSoFar = [0 for _ in array]
-        rightMinSoFar = [0 for _ in array]
         total_searchable_elements = 0
 
         leftMaxSoFar[0] = array[0]
@@ -61,7 +60,6 @@ class Solution:
 
             if leftMaxSoFar[i] == array[i] and rightMinSoFar == array[i]:
                 total_searchable_elements += 1
-
 
         return total_searchable_elements
 

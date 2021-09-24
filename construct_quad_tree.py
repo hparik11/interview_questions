@@ -4,15 +4,7 @@
 # @Date:   9/27/20, Sun
 """
 Construct Quad Tree
-Medium
 
-268
-
-443
-
-Add to List
-
-Share
 Given a n * n matrix grid of 0's and 1's only. We want to represent the grid with a Quad-Tree.
 
 Return the root of the Quad-Tree representing the grid.

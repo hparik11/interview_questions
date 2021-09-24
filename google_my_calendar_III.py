@@ -52,7 +52,7 @@ class MyCalendarThree:
         print(sorted(self.delta.items()))
 
         active = ans = 0
-        for x in (self.delta):
+        for x in self.delta:
             active += self.delta[x]
             if active > ans:
                 ans = active

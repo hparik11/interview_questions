@@ -84,7 +84,6 @@ class Solution(object):
         print(self.graph)
         # visited set will track vertices seen while exploring the current vertex
         self.visited = [0 for _ in range(numCourses)]
-        print(self.visited)
 
         # For every vertex that has not been explored, visit it
         for i in list(self.graph):

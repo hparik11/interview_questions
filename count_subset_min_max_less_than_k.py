@@ -8,7 +8,8 @@
 Count of subsets having sum of min and max element less than K
 Difficulty Level : Medium
 
-Given an integer array arr[] and an integer K, the task is to find the number of non-empty subsets S such that min(S) + max(S) < K.
+Given an integer array arr[] and an integer K,
+the task is to find the number of non-empty subsets S such that min(S) + max(S) < K.
 Examples:
 
 
