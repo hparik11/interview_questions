@@ -1,3 +1,8 @@
-/venv/
-/.idea
+venv/
+.idea
 Carta_DS_Challenge/v-env-python3.7
+Carta_DS_Challenge/.ipynb_checkpoints
+Carta_DS_Challenge/__pycache__
+Clari_DataScience/.ipynb_checkpoints
+next_insurance_ds_challenge/.ipynb_checkpoints
+Carta_DS_Challenge/.DS_Store
