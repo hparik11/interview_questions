@@ -25,7 +25,9 @@ The distance is calculated using Manhattan Distance, where distance(p1, p2) = |p
 Example 1:
 
 
-Input: grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+Input: grid = [ [1,0,2,0,1],
+                [0,0,0,0,0],
+                [0,0,1,0,0]]
 Output: 7
 Explanation: Given three buildings at (0,0), (0,4), (2,2), and an obstacle at (0,2).
 The point (1,2) is an ideal empty land to build a house, as the total travel distance of 3+3+1=7 is minimal.
@@ -47,18 +49,20 @@ class Solution:
         if not grid or not grid[0]:
             return -1
 
-        M, N, buildings = len(grid), len(grid[0]), sum(val for line in grid for val in line if val == 1)
+        num_rows, num_cols, buildings = len(grid), len(grid[0]), sum(val for line in grid for val in line if val == 1)
 
-        buildings_reached, distSum = [[0] * N for i in range(M)], [[0] * N for i in range(M)]
+        buildings_reached, distSum = [[0] * num_cols for _ in range(num_rows)], [[0] * num_cols for _ in range(num_rows)]
 
         def BFS(start_x, start_y):
-            visited = [[False] * N for k in range(M)]
-            visited[start_x][start_y], count1, queue = True, 1, collections.deque([(start_x, start_y, 0)])
+            visited = [[False] * num_cols for _ in range(num_rows)]
+            visited[start_x][start_y] = True
+            count1 = 1
+            queue = collections.deque([(start_x, start_y, 0)])
 
             while queue:
                 x, y, dist = queue.popleft()
                 for i, j in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
-                    if 0 <= i < M and 0 <= j < N and not visited[i][j]:
+                    if 0 <= i < num_rows and 0 <= j < num_cols and not visited[i][j]:
                         visited[i][j] = True
                         if not grid[i][j]:
                             queue.append((i, j, dist + 1))
@@ -69,11 +73,11 @@ class Solution:
 
             return count1 == buildings
 
-        for x in range(M):
-            for y in range(N):
+        for x in range(num_rows):
+            for y in range(num_cols):
                 if grid[x][y] == 1:
                     if not BFS(x, y):
                         return -1
 
-        return min([distSum[i][j] for i in range(M) for j in range(N) if
+        return min([distSum[i][j] for i in range(num_rows) for j in range(num_cols) if
                     not grid[i][j] and buildings_reached[i][j] == buildings] or [-1])

@@ -52,7 +52,6 @@ class Solution:
             guess_word = wordlist[0]
             matches = master.guess(guess_word)
 
-            #
             if matches == -1:
                 continue
 

@@ -5,7 +5,7 @@
 @Author   : Harsh Parikh
 @Date     : 8/25/21 10:57 AM
 
-Given a zero-inexed array H of height of buildings, number of bricks b and number of ropes r. You start your journey from buiding 0 and move to adjacent building either using rope or bricks. You have limited number of bricks and ropes.
+Given a zero-indexed array H of height of buildings, number of bricks b and number of ropes r. You start your journey from buiding 0 and move to adjacent building either using rope or bricks. You have limited number of bricks and ropes.
 While moving from ith building to (i+1)th building,
 
 if next building's height is less than or equal to the current buiding's height, you do not need rope or bricks.

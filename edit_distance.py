@@ -21,6 +21,7 @@ class Solution:
         insert = 1 + self.minDistance(word1, word2[1:])
         delete = 1 + self.minDistance(word1[1:], word2)
         replace = 1 + self.minDistance(word1[1:], word2[1:])
+
         return min(insert, replace, delete)
 
 

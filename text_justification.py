@@ -58,7 +58,7 @@ Output:
 
 
 class Solution:
-    def fullJustify(self, words, maxWidth: int):
+    def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
         def justify(line, width, maxWidth):
             if len(line) == 1:
                 return line[0] + ' ' * (maxWidth - width)
@@ -70,7 +70,7 @@ class Solution:
                 # Number of spaces distributed evenly between each word
                 assign = locations * [spaces // locations]
 
-                # Sharing the extra/remaining spaces amoung left hand side words
+                # Sharing the extra/remaining spaces among left hand side words
                 for i in range(spaces % locations):
                     assign[i] += 1
 
