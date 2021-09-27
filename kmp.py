@@ -6,8 +6,7 @@
 
 def knuthMorrisPrattAlgorithm(string, substring):
     # Write your code here.
-    result = buildSubStringArray(substring)
-    # print(result)
+    pattern = buildSubStringArray(substring)
 
     i = 0
     j = 0
@@ -17,9 +16,10 @@ def knuthMorrisPrattAlgorithm(string, substring):
             j += 1
         else:
             if j > 0:
-                j = result[j - 1] + 1
+                j = pattern[j - 1] + 1
             else:
                 i += 1
+
     return j == len(substring)
 
 
@@ -27,21 +27,20 @@ def buildSubStringArray(substring):
     i = 1
     j = 0
 
-    alist = [-1 for _ in range(len(substring))]
+    pattern = [-1 for _ in range(len(substring))]
 
     while i < len(substring):
         if substring[i] == substring[j]:
-            alist[i] = j
+            pattern[i] = j
             i += 1
             j += 1
         else:
-            if j > 0 and alist[j - 1] == -1:
-                j = 0
-                i += 1
+            if j > 0:
+                j = pattern[j - 1] + 1
             else:
-                j = alist[j - 1] + 1
+                i += 1
 
-    return alist
+    return pattern
 
 
 if __name__ == '__main__':

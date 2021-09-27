@@ -4,15 +4,7 @@
 # @Date:   9/27/20, Sun
 """
 Merge Two Sorted Lists
-Easy
 
-4968
-
-630
-
-Add to List
-
-Share
 Merge two sorted linked lists and return it as a new sorted list. The new list should be made by splicing together the nodes of the first two lists.
 
 Example:
@@ -32,7 +24,6 @@ class Solution:
 
         dummy = temp = ListNode(0)
         while l1 is not None and l2 is not None:  # 1
-
             if l1.val < l2.val:  # 2
                 temp.next = l1  # 3
                 l1 = l1.next  # 4

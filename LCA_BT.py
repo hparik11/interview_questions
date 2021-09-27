@@ -48,8 +48,8 @@ class Solution:
         if root.val == decendant_node.val:
             return depth
 
-        return self.findDepth(root.left, decendant_node, depth + 1) or self.findDepth(root.right, decendant_node,
-                                                                                      depth + 1)
+        return self.findDepth(root.left, decendant_node, depth + 1) \
+               or self.findDepth(root.right, decendant_node, depth + 1)
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         # found p and q?

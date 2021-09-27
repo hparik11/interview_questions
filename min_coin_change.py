@@ -21,7 +21,11 @@ Output: -1
 
 from typing import List
 
+### Brute force = amount^(no. of coins) 𝑂(A^n)
 
+"""
+DP: Time O(A * N)
+"""
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
             dp = [float('inf') for _ in range(amount + 1)]

@@ -1,44 +1,58 @@
-def spiralTraverse(array):
-    # Write your code here.
-    if not array:
-        return array
-    if len(array) == 1:
-        return array[0]
-    firstRow = 0
-    lastRow = len(array) - 1
-    firstCol = 0
-    lastCol = len(array[0]) - 1
+"""
+54. Spiral Matrix
 
-    print(firstCol, lastCol, firstRow, lastRow)
-    result = []
-    while firstCol <= lastCol and firstRow <= lastRow:
-        print(firstCol, lastCol, firstRow, lastRow)
-        if firstCol < lastCol:
-            for i in range(firstCol, lastCol + 1):
-                result.append(array[firstRow][i])
-            firstRow += 1
-
-        if firstRow < lastRow:
-            for i in range(firstRow, lastRow + 1):
-                result.append(array[i][lastCol])
-            lastCol -= 1
-
-        if firstCol < lastCol and firstRow <= lastRow:
-            for i in range(lastCol, firstCol - 1, -1):
-                result.append(array[lastRow][i])
-            lastRow -= 1
-
-        if firstRow < lastRow and firstCol <= lastCol:
-            for i in range(lastRow, firstRow - 1, -1):
-                result.append(array[i][firstCol])
-            firstCol += 1
-
-        print(result)
-
-    return result
+Given an m x n matrix, return all elements of the matrix in spiral order.
 
 
-if __name__ == '__main__':
-    print(spiralTraverse([[1, 2, 3, 4], [12, 13, 14, 5], [11, 16, 15, 6], [10, 9, 8, 7]]))
-    print(spiralTraverse([[1]]))
-    print(spiralTraverse([[1, 2, 3], [8, 9, 4], [7, 6, 5]]))
+
+Example 1:
+
+
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+Example 2:
+
+
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+"""
+
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix:
+            return []
+
+        row_start = 0
+        row_end = len(matrix) - 1
+
+        col_start = 0
+        col_end = len(matrix[0]) - 1
+
+        res = []
+        while row_start <= row_end and col_start <= col_end:
+
+            # right
+            for j in range(col_start, col_end + 1):
+                res.append(matrix[row_start][j])
+            row_start += 1
+
+            # down
+            for i in range(row_start, row_end + 1):
+                res.append(matrix[i][col_end])
+            col_end -= 1
+
+            # left
+            if row_start <= row_end:
+                for j in range(col_end, col_start - 1, -1):
+                    res.append(matrix[row_end][j])
+
+                row_end -= 1
+
+            # up
+            if col_start <= col_end:
+                for i in range(row_end, row_start - 1, -1):
+                    res.append(matrix[i][col_start])
+                col_start += 1
+
+        return res

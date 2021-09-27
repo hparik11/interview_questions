@@ -37,17 +37,17 @@ from typing import List
 
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
-        input_dict = [0] * 26
+        pattern_dict = [0] * 26
         input_str = [0] * 26
 
         for ch in p:
-            input_dict[ord(ch) - ord('a')] += 1
+            pattern_dict[ord(ch) - ord('a')] += 1
 
         idx = 0
         result = []
         while idx < len(s):
             input_str[ord(s[idx]) - ord('a')] += 1
-            if input_str == input_dict:
+            if input_str == pattern_dict:
                 result.append(idx + 1 - len(p))
 
             if idx + 1 >= len(p):

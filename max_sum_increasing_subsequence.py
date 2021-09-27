@@ -1,7 +1,6 @@
 def maxSumIncreasingSubsequence(array):
     # Write your code here.
     sumArray = array[:]
-    print(array, sumArray)
     maxSum = float('-inf')
     maxSumIndex = 0
     sequences = [None] * len(array)
