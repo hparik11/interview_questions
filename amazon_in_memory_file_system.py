@@ -30,8 +30,6 @@ Explanation:
 filesystem
 """
 
-import collections
-
 
 class FileSystem(object):
     def __init__(self):

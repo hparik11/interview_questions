@@ -36,6 +36,24 @@ A solution set is:
 
 from typing import List
 
+"""
+Time Complexity: O(2^N)
+
+In the worst case, our algorithm will exhaust all possible combinations from the input array, which in total amounts to O(2^N)
+
+The sorting will take O(NlogN).
+
+To sum up, the overall time complexity of the algorithm is dominated by the backtracking process, which is O(2^N)
+
+Space Complexity: O(N)
+
+We use the variable comb to keep track of the current combination we build, which requires O(N) space.
+
+In addition, we apply recursion in the algorithm, which will incur additional memory consumption in the function call stack. 
+In the worst case, the stack will pile up to O(N) space.
+
+"""
+
 
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -49,10 +67,10 @@ class Solution:
                 return
 
             for i in range(start, len(candidates)):
-                if i > start and candidates[i] == candidates[i-1]:
+                if i > start and candidates[i] == candidates[i - 1]:
                     continue
 
-                dfs(target - candidates[i], i+1, candidates, path + [candidates[i]], paths)
+                dfs(target - candidates[i], i + 1, candidates, path + [candidates[i]], paths)
 
         path = []
         paths = []

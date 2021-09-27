@@ -6,15 +6,7 @@
 @Date     : 7/29/21 11:22 PM
 
 1539. Kth Missing Positive Number
-Easy
 
-1243
-
-79
-
-Add to List
-
-Share
 Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
 
 Find the kth positive integer that is missing from this array.
@@ -35,7 +27,7 @@ Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing posi
 
 
 class Solution:
-    def findKthPositive(self, arr, k: int) -> int:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
 
         positive_integer = 1
         array_ptr = 0

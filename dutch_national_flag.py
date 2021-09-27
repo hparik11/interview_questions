@@ -21,7 +21,7 @@ from typing import List
 
 
 class Solution:
-    def sortColors(self, nums: List[int]) -> None:
+    def sortColors(self, nums: List[int]) -> List[int]:
         """
         Do not return anything, modify nums in-place instead.
         """
@@ -29,6 +29,7 @@ class Solution:
         ri = len(nums) - 1
         pivot = 1
         index = 0
+
         while index <= ri:
             num = nums[index]
             # print(li, ri, index, nums)

@@ -53,15 +53,15 @@ class Node:
 class Solution:
     def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
 
-        def findDecendant(node, targetNode):
+        def findDescendant(node, targetNode):
             if not node:
                 return
 
             if node == targetNode:
                 return True
 
-            leftSide = findDecendant(node.left, targetNode)
-            rightSide = findDecendant(node.right, targetNode)
+            leftSide = findDescendant(node.left, targetNode)
+            rightSide = findDescendant(node.right, targetNode)
 
             if leftSide or rightSide:
                 return True
@@ -74,9 +74,9 @@ class Solution:
 
             return findNodeDepth(node.parent, depth + 1)
 
-        if findDecendant(p, q):
+        if findDescendant(p, q):
             return p
-        elif findDecendant(q, p):
+        elif findDescendant(q, p):
             return q
 
         pDepth = findNodeDepth(p, 0)

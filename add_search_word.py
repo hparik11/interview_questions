@@ -19,90 +19,98 @@ search("b..") -> true
 """
 
 
-# class TrieNode(object):
-#     def __init__(self, val=None):
-#         self.val = val
-#         self.children = {}
-
-
-# class WordDictionary:
-
-#     def __init__(self):
-#         """
-#         Initialize your data structure here.
-#         """
-#         self.root = TrieNode()
-#         self.curr = TrieNode()
-
-
-#     def addWord(self, word: str) -> None:
-#         """
-#         Adds a word into the data structure.
-#         """
-#         node = self.root
-#         for ch in word:
-#             if ch not in node.children:
-#                 node.children[ch] = TrieNode(ch)
-
-#             node = node.children[ch]
-
-#         node.children['/'] = TrieNode('/')
-
-#       def search(self, word: str) -> bool:
-#           """
-#           Returns if the word is in the data structure. A word could contain the dot
-#           character '.' to represent any one letter.
-#           """
-
-#         for i in range(len(word)):
-#             if word[i] != '.':
-#                 if word[i] in root.children:
-#                     root = root.children[word[i]]
-#                 else:
-#                     return False
-#             else:
-# 				#If the present char is a '.' then I visit all the children nodes in DFS manner to find match
-#                 visitAll = root.children
-#                 for child in visitAll:
-#                     if self.search(root.children[child], word[i+1:]):
-#                         return True
-#                 return False
-#         return (root.isWord == True)
-
 class WordDictionary:
 
     def __init__(self):
+        """
+        Initialize your data structure here.
+        """
         self.root = {}
 
     def addWord(self, word: str) -> None:
+        """
+        Adds a word into the data structure.
+
+#       time: O(N), N: number of letters in the word
+#       space: O(N)
+        """
         node = self.root
-        for c in word:
-            if c not in node:
-                node[c] = {}
-            node = node[c]
-        node['*'] = False
+        for ch in word:
+            if ch not in node:
+                node[ch] = {}
 
-    def search(self, w: str) -> bool:
-        def dfs(node, i):
-            if not node:
+            node = node[ch]
+
+        node['$'] = True
+
+    def search(self, word: str) -> bool:
+        node = self.root
+
+        return self.dfs(node, word)
+
+    def dfs(self, node, word: str) -> bool:
+        """
+        Returns if the word is in the data structure. A word could contain the dot character '.' to represent any one letter.
+
+        # time: (26 ^ N), worst case: ".....", this will have to search for all combinations of 26 characters
+        # space: O(N), for recursion stack
+        """
+
+        for i, ch in enumerate(word):
+            if ch not in node:
+                # if the current character is '.'
+                # check all possible nodes at this level
+                if ch == '.':
+                    for x in node:
+                        if x != '$' and self.dfs(node[x], word[i + 1:]):
+                            return True
+
+                # if no nodes lead to answer
+                # or the current character != '.'
+
                 return False
+            # if the character is found
+            # go down to the next level in trie
+            else:
+                node = node[ch]
 
-            if i == L:
-                return '*' in node
+        return '$' in node
 
-            if w[i] != '.':
-                if w[i] not in node:
-                    return False
-                return dfs(node[w[i]], i + 1)
 
-            for j in node.values():
-                if dfs(j, i + 1):
-                    return True
-
-            return False
-
-        node, L = self.root, len(w)
-        return dfs(node, 0)
+# class WordDictionary:
+#
+#     def __init__(self):
+#         self.root = {}
+#
+#     def addWord(self, word: str) -> None:
+#         node = self.root
+#         for c in word:
+#             if c not in node:
+#                 node[c] = {}
+#             node = node[c]
+#         node['*'] = False
+#
+#     def search(self, w: str) -> bool:
+#         def dfs(node, i):
+#             if not node:
+#                 return False
+#
+#             if i == L:
+#                 return '*' in node
+#
+#             if w[i] != '.':
+#                 if w[i] not in node:
+#                     return False
+#                 return dfs(node[w[i]], i + 1)
+#
+#             for j in node.values():
+#                 if dfs(j, i + 1):
+#                     return True
+#
+#             return False
+#
+#         node, L = self.root, len(w)
+#         return dfs(node, 0)
 
 
 # Your WordDictionary object will be instantiated and called as such:

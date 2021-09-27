@@ -25,9 +25,9 @@ def mergeSortedArrays(arrays):
         if len(heapArray) == 0:
             break
         heapq.heapify(heapArray)
-        minValue, minIdx = heapq.heappop(heapArray)
-        sortedList.append(minValue)
-        elementIdxs[minIdx] += 1
+        minValue = heapq.heappop(heapArray)
+        sortedList.append(minValue[0])
+        elementIdxs[minValue[1]] += 1
 
     return sortedList
 

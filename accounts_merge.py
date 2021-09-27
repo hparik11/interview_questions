@@ -31,7 +31,9 @@ We could return these lists in any order, for example the answer [['Mary', 'mary
 """
 
 from collections import defaultdict
-from typing import List
+
+"""
+"""
 
 
 class Solution:

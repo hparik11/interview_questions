@@ -26,6 +26,14 @@ Explanation: There are three ways to climb to the top.
 3. 2 steps + 1 step
 """
 
+"""
+Complexity Analysis
+
+Time complexity : O(n). Size of recursion tree can go upto nn.
+
+Space complexity : O(n). The depth of recursion tree can go upto nn.
+"""
+
 
 class Solution:
     def climbStairs(self, n: int, dp=None) -> int:
@@ -42,10 +50,10 @@ class Solution:
 
     def countWaysUtil(self, n, m):
         # Creates list res with all elements 0
-        res = [0 for x in range(n+1)]
+        res = [0 for x in range(n + 1)]
         res[0], res[1] = 1, 1
 
-        for i in range(2, n+1):
+        for i in range(2, n + 1):
             j = 1
             while j <= m and j <= i:
                 res[i] = res[i] + res[i - j]

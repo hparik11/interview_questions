@@ -30,9 +30,9 @@ class Solution(object):
         :rtype: int
         """
         cnt = 0
+
         for i in range(32):
-            print(n, i, (n << i))
-            cnt += ((n << i) & 1)
+            cnt += ((n >> i) & 1)
 
         print(cnt)
 

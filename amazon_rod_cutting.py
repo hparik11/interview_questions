@@ -41,8 +41,24 @@ def cutRod(price, n):
     return max_val
 
 
-if __name__ == '__main__':
+def cutRod1(price, n):
 
+    profit = [0 for _ in range(n + 1)]
+
+    # Recursively cut the rod in different pieces
+    # and compare different configurations
+    for i in range(1, n + 1):
+        max_price = float('-inf')
+        for j in range(0, n + 1):
+            if j < i:
+                max_price = max(max_price, price[j] + profit[i - j - 1])
+
+        profit[i] = max_price
+
+    return profit[-1]
+
+
+if __name__ == '__main__':
     arr = [1, 5, 8, 9, 10, 17, 17, 20]
     size = len(arr)
-    print("Maximum Obtainable Value is", cutRod(arr, size))
+    print("Maximum Obtainable Value is", cutRod1(arr, size))

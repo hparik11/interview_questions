@@ -49,7 +49,7 @@ class Solution:
 
         return palindrome_pairs
 
-    def palindromePairs1(self, words: List[str]) -> List[List[int]]:
+    def palindromePairs1(self, words: List[str]) -> List[Tuple[int, int]]:
         """
         As we iterate through words, then, each word will possibly match another word in one of three ways:
 

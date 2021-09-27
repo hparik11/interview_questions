@@ -33,10 +33,9 @@ class Trie:
             node = node[c]
         node['*'] = False
 
-    def process(self, abbr, string, num):
-        node = self.root
+    def process(self, node, abbr, string, num):
         if not abbr and num == 0:
-            if node.isWord:
+            if '*' in node:
                 print(string)
             return
 
@@ -53,8 +52,8 @@ class Trie:
             self.process(node, abbr[1:], string, count)
 
         else:
-            if node.child.get(abbr[0]):
-                self.process(node.child[abbr[0]], abbr[1:], string + abbr[0], 0)
+            if node.get(abbr[0]):
+                self.process(node[abbr[0]], abbr[1:], string + abbr[0], 0)
 
 
 def helper(w, rex):

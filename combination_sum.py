@@ -36,6 +36,13 @@ A solution set is:
 
 from typing import List
 
+"""
+Time: O(N^k)
+Where N is the length of the array, k is the length of the longest possible combination
+
+Space Complexity: O(k)
+"""
+
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
@@ -43,8 +50,8 @@ class Solution:
             # print(target, start, path)
             if target == 0:
                 paths.append(path)
+                return
 
-                return True
             if target < 0:
                 return
 

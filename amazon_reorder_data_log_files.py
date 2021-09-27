@@ -20,7 +20,6 @@ Reorder the logs so that all of the letter-logs come before any digit-log.  The 
 Return the final order of the logs.
 """
 
-from typing import List
 
 class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:

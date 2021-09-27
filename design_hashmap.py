@@ -79,7 +79,8 @@ class MyHashMap:
         curr_node = prev_node = self.hash_table[index]
 
         # Removing from empty bin just return
-        if not curr_node: return
+        if not curr_node:
+            return
 
         if curr_node.key == key:
             # We found the node to delete immediately, we can now skip over it

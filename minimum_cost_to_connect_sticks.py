@@ -59,5 +59,6 @@ class Solution:
 
         return totalCost
 
+
 if __name__ == '__main__':
-    print(Solution().connectSticks([2,4,3]))
+    print(Solution().connectSticks([2, 4, 3]))
