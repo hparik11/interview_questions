@@ -21,9 +21,12 @@ class Node {
 
 Test case format:
 
-For simplicity, each node's value is the same as the node's index (1-indexed). For example, the first node with val == 1, the second node with val == 2, and so on. The graph is represented in the test case using an adjacency list.
+For simplicity, each node's value is the same as the node's index (1-indexed).
+For example, the first node with val == 1, the second node with val == 2, and so on.
+The graph is represented in the test case using an adjacency list.
 
-An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
+An adjacency list is a collection of unordered lists used to represent a finite graph.
+Each list describes the set of neighbors of a node in the graph.
 
 The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
 
@@ -85,3 +88,31 @@ class Solution:
                 m[n].neighbors.append(m[neigh])
 
         return m[node]
+
+
+"""
+Time Complexity: O(N + M), where NN is a number of nodes (vertices) and MM is a number of edges.
+Space Complexity: O(N). This space is occupied by the visited hash map and in addition to that, space would also be occupied by the recursion stack since we are adopting a recursive approach here. The space occupied by the recursion stack would be equal to O(H)O(H) where HH is the height of the graph. Overall, the space complexity would be O(N)O(N).
+"""
+
+
+class Solution_DFS:
+    def __init__(self):
+        self.visited = {}
+
+    def cloneGraph(self, node: 'Node') -> 'Node':
+
+        if not node:
+            return node
+
+        if node in self.visited:
+            return self.visited[node]
+
+        clone_node = Node(node.val, [])
+
+        self.visited[node] = clone_node
+
+        for neigh in node.neighbors:
+            clone_node.neighbors.append(self.cloneGraph(neigh))
+
+        return clone_node

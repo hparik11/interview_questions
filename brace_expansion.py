@@ -6,6 +6,15 @@
 @Date     : 8/7/21 12:09 AM
 
 1087. Brace Expansion
+Medium
+
+379
+
+35
+
+Add to List
+
+Share
 You are given a string s representing a list of words. Each letter in the word has one or more options.
 
 If there is one option, the letter is represented as is.
@@ -53,6 +62,7 @@ class Solution:
 
                     i += 1
 
+                print(result, charactersInsideBraces)
                 result = [res + char for res in result for char in charactersInsideBraces]
 
             i += 1

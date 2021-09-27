@@ -9,10 +9,10 @@
 
 You need to construct a binary tree from a string consisting of parenthesis and integers.
 
-The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis. The integer represents the root's value and a pair of parenthesis contains a child binary tree with the same structure.
+The whole input represents a binary tree. It contains an integer followed by zero, one or two pairs of parenthesis.
+The integer represents the root's value and a pair of parenthesis contains a child binary tree with the same structure.
 
 You always start to construct the left child node of the parent first if it exists.
-
 
 
 Example 1:
@@ -71,16 +71,13 @@ class Solution:
                 if num:
                     node = TreeNode(num)
                     num = ''
-                    if stack[-1].left is None:
-                        stack[-1].left = node
-                    elif stack[-1].right is None:
-                        stack[-1].right = node
                 else:
                     node = stack.pop()
-                    if stack[-1].left is None:
-                        stack[-1].left = node
-                    else:
-                        stack[-1].right = node
+
+                if stack[-1].left is None:
+                    stack[-1].left = node
+                else:
+                    stack[-1].right = node
 
         return stack[-1] if stack else TreeNode(num) if s else None
 

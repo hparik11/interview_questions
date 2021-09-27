@@ -25,6 +25,12 @@ Input: n = 5, edges = [[0,1],[1,2],[2,3],[3,4]]
 Output: 1
 """
 
+"""
+This algorithm is Weighted Union Find with Path Compression. 
+Find is not exactly O(1), should be log*(n). 
+Here log* (log star) is a function grows much slower than log, so we can consider it almost O(1).
+"""
+
 
 class UnionFind:
     def __init__(self, n):

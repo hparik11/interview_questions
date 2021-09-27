@@ -52,10 +52,9 @@ def minOperations(arr):
             if currWord == goal:
                 return levels  # currWord is sorted, return how many levels deep in the BFS.
 
-            for i in range(len(currWord)):
+            for i in range(len(currWord)-1):
                 for j in range(i + 1, len(currWord)):
                     reverseList(currWord, i, j)
-
                     if tuple(currWord) not in visited:
                         visited.add(tuple(currWord))
                         q.append(currWord[:])

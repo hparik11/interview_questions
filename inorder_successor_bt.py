@@ -42,7 +42,6 @@ def findLeftMostNode(node):
 
 
 if __name__ == '__main__':
-
     """
             1
            / \
@@ -64,6 +63,6 @@ if __name__ == '__main__':
     root.left.left.left = BinaryTree(6)
     root.left.left.left.parent = root.left.left
 
-    node = root.left.right # 5
+    node = root.left.right  # 5
 
     print(findSuccessor(node).value)

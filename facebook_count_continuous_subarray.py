@@ -44,6 +44,7 @@ def count_subarrays(arr):
             res[i] += i
         else:
             res[i] += i - 1 - stack[-1]
+
         stack.append(i)
 
     # Right

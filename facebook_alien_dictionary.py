@@ -62,7 +62,7 @@ class Solution:
                         k += 1
                         l += 1
 
-                # At last check, if first word has still few lettes left but second word not then return False
+                # At last check, if first word has still few letters left but second word not then return False
                 if k < len(firstWord) and l == len(secondWord):
                     return False
 

@@ -23,8 +23,13 @@ We know that area of the square is 1 unit sq while that of circle is \pi \ast  (
 
 that is,
 
-\pi = 4 \ast \frac{\textrm{no. of points generated inside the circle}}{\textrm{no. of points generated inside the square}}
-The beauty of this algorithm is that we don’t need any graphics or simulation to display the generated points. We simply generate random (x, y) pairs and then check if  x^{2} + y^{2} \leqslant 1 . If yes, we increment the number of points that appears inside the circle. In randomized and simulation algorithms like Monte Carlo, the more the number of iterations, the more accurate the result is. Thus, the title is “Estimating the value of Pi” and not “Calculating the value of Pi”. Below is the algorithm for the method:
+pi = 4 * {no. of points generated inside the circle}/ {no. of points generated inside the square}
+The beauty of this algorithm is that we don’t need any graphics or simulation to display the generated points.
+We simply generate random (x, y) pairs and then check if  x^{2} + y^{2} <= 1 .
+If yes, we increment the number of points that appears inside the circle.
+In randomized and simulation algorithms like Monte Carlo, the more the number of iterations,
+ the more accurate the result is. Thus, the title is “Estimating the value of Pi” and not “Calculating the value of Pi”.
+ Below is the algorithm for the method:
 
 The Algorithm
 1. Initialize circle_points, square_points and interval to 0.
@@ -38,9 +43,8 @@ The Algorithm
 9. Calculate pi = 4*(circle_points/square_points).
 10. Terminate.
 
+https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/
 
-
-The code doesn't wait for any input via stdin as the macro INTERVAL could be changed as per the required number of iterations. Number of iterations are the square of INTERVAL. Also, I've paused the screen for first 10 iterations with getch() and outputs are displayed for every iteration with format given below. You can change or delete them as per requirement.
 
 x y circle_points square_points - pi
 Examples:
@@ -57,6 +61,7 @@ Output : Final Estimation of Pi = 3.0916
 Recommended: Please try your approach on {IDE} first, before moving on to the solution.
 
 
+https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/
 """
 
 import random

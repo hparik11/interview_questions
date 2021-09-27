@@ -45,6 +45,24 @@ class ExtensionFilter(Filter):
         return file.extension == self.extension
 
 
+class AndFilter(Filter):
+    def __init__(self, *args):
+        super().__init__()
+        self.args = args
+
+    def apply(self, file):
+        return all(map(lambda spec: spec.apply(file), self.args))
+
+
+class ORFilter(Filter):
+    def __init__(self, *args):
+        super().__init__()
+        self.args = args
+
+    def apply(self, file):
+        return any(map(lambda specs: specs.apply(file), self.args))
+
+
 class File:
     def __init__(self, name, size):
         self.name = name
@@ -77,9 +95,9 @@ class FileSystem:
                 if r.isDirectory:
                     traverseUtil(r, result)
                 else:
+
                     for _f in self.filters:
                         if _f.apply(r):
-                            print("result:", result)
                             result.append(r)
 
         # return result
@@ -87,24 +105,30 @@ class FileSystem:
         return result
 
 
-f1 = File("StarTrek.txt", 5)
-f2 = File("StarWars.xml", 10)
-f3 = File("JusticeLeague.txt", 15)
-f4 = File("IronMan.txt", 9)
-f5 = File("Spock.jpg", 1)
-f6 = File("BigBangTheory.txt", 50)
-f7 = File("MissionImpossible", 10)
-f8 = File("BreakingBad", 11)
-f9 = File("root", 100)
+if __name__ == '__main__':
+    f1 = File("StarTrek.txt", 5)
+    f2 = File("StarWars.xml", 10)
+    f3 = File("JusticeLeague.txt", 15)
+    f4 = File("IronMan.txt", 9)
+    f5 = File("Spock.jpg", 1)
+    f6 = File("BigBangTheory.txt", 50)
+    f7 = File("MissionImpossible", 10)
+    f8 = File("BreakingBad", 11)
+    f9 = File("root", 100)
 
-f9.children = [f7, f8]
-f7.children = [f1, f2, f3]
-f8.children = [f4, f5, f6]
+    f9.children = [f7, f8]
+    f7.children = [f1, f2, f3]
+    f8.children = [f4, f5, f6]
 
-filter1 = SizeFilter(5)
-filter2 = ExtensionFilter("txt")
+    filter1 = SizeFilter(5)
+    filter2 = ExtensionFilter("txt")
 
-fs = FileSystem()
-fs.addFilter(filter1)
-fs.addFilter(filter2)
-print(fs.traverse(f9))
+    filter3 = AndFilter(filter1, filter2)
+    filter4 = ORFilter(filter1, filter2)
+
+    fs = FileSystem()
+    # fs.addFilter(filter1)
+    # fs.addFilter(filter2)
+    # fs.addFilter(filter3)
+    fs.addFilter(filter4)
+    print(fs.traverse(f9))

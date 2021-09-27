@@ -9,7 +9,9 @@ Give a number, return True or False if it is a power of 2.
 """
 
 """
-is bitwise problem. All powers of 2, written in binary, will have only the most significant bit set (e.g. 2 -> 10, 4 -> 100, 8 -> 1000, 16 -> 10000). When you subtract 1 from a power of two, you get the bits flipped:
+is bitwise problem. All powers of 2, written in binary, 
+will have only the most significant bit set 
+(e.g. 2 -> 10, 4 -> 100, 8 -> 1000, 16 -> 10000). When you subtract 1 from a power of two, you get the bits flipped:
 10 - 1 = 01
 100 - 1 = 011
 1000 - 1 = 0111

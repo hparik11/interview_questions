@@ -42,20 +42,15 @@ def find_path_with_greatest_product(matrix):
                 maxCache[i][j] = max(maxCache[i][j - 1] * matrix[i][j], minCache[i][j - 1] * matrix[i][j])
                 minCache[i][j] = min(maxCache[i][j - 1] * matrix[i][j], minCache[i][j - 1] * matrix[i][j])
             elif j == 0:
-                maxCache[i][j] = max(maxCache[i-1][j] * matrix[i][j], minCache[i-1][j] * matrix[i][j])
-                minCache[i][j] = max(maxCache[i-1][j] * matrix[i][j], minCache[i-1][j] * matrix[i][j])
+                maxCache[i][j] = max(maxCache[i - 1][j] * matrix[i][j], minCache[i - 1][j] * matrix[i][j])
+                minCache[i][j] = max(maxCache[i - 1][j] * matrix[i][j], minCache[i - 1][j] * matrix[i][j])
             else:
                 maxCache[i][j] = max(maxCache[i - 1][j] * matrix[i][j], minCache[i - 1][j] * matrix[i][j],
-                                     maxCache[i][j-1] * matrix[i][j], minCache[i][j-1] * matrix[i][j])
+                                     maxCache[i][j - 1] * matrix[i][j], minCache[i][j - 1] * matrix[i][j])
                 minCache[i][j] = min(maxCache[i - 1][j] * matrix[i][j], minCache[i - 1][j] * matrix[i][j],
-                                     maxCache[i][j-1] * matrix[i][j], minCache[i][j-1] * matrix[i][j])
+                                     maxCache[i][j - 1] * matrix[i][j], minCache[i][j - 1] * matrix[i][j])
 
     return maxCache[numRows - 1][numCols - 1]
-
-
-
-
-
 
 
 if __name__ == '__main__':

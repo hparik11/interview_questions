@@ -19,6 +19,11 @@ Example 1:
 
 
 Input: root = [1,2,3,4,5]
+        1
+       / \
+      2   3
+    / \
+   4   5
 Output: 3
 Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 Example 2:
@@ -47,9 +52,11 @@ def getTreeInfo(tree):
     leftTreeInfo = getTreeInfo(tree.left)
     rightTreeInfo = getTreeInfo(tree.right)
 
-    longestPathFromNode = leftTreeInfo.depth + rightTreeInfo.depth
+    longestPath = leftTreeInfo.depth + rightTreeInfo.depth
     maxDiameterSoFar = max(leftTreeInfo.diameter, rightTreeInfo.diameter)
-    currentNodeDiameter = max(maxDiameterSoFar, longestPathFromNode)
+
+    currentNodeDiameter = max(maxDiameterSoFar, longestPath)
+
     currentMaxDepth = 1 + max(leftTreeInfo.depth, rightTreeInfo.depth)
 
     return TreeInfo(currentNodeDiameter, currentMaxDepth)

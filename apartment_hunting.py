@@ -5,7 +5,12 @@
 @Author   : Harsh Parikh
 @Date     : 8/4/21 3:55 PM
 
-You’re looking to move into a new apartment, and you’re given a list of blocks where each block contains some services that it offers. In order to pick your apartment, you want to optimize its location in such a way that the maximum distance to any services that you care for is minimized.
+You’re looking to move into a new apartment,
+and you’re given a list of blocks where each block contains
+some services that it offers. In order to pick your apartment,
+you want to optimize its location in such a way that
+the maximum distance to any services that you care for is minimized.
+
 Example —
 blocks = [
 {[

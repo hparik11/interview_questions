@@ -35,13 +35,14 @@ Output: [1]
 
 
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
+    def nextPermutation(self, nums) -> None:
         """
         Do not return anything, modify nums in-place instead.
 
-        1243 5 7643
-             k    j
-             6 7543
+        1243 5 7 643
+             k i   j
+             k i j
+             6 7 543
 
         """
         i = j = len(nums) - 1
@@ -70,7 +71,7 @@ class Solution:
         nums[k], nums[j] = nums[j], nums[k]
 
         # We'll reverse a sequence starting from i to end
-        l, r = k + 1, len(nums) - 1  # reverse the second part
+        l, r = i, len(nums) - 1  # reverse the second part
 
         while l < r:
             nums[l], nums[r] = nums[r], nums[l]
@@ -80,5 +81,13 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.nextPermutation([1, 2, 3]))
-    print(s.nextPermutation([3, 2, 1]))
+    nums = [1, 2, 3]
+    s.nextPermutation(nums)
+    print(nums)
+    nums = [3, 2, 1]
+    s.nextPermutation(nums)
+    print(nums)
+
+    nums = [1, 2, 4, 3, 5, 7, 6, 4, 3]
+    s.nextPermutation(nums)
+    print(nums)

@@ -101,3 +101,51 @@ if __name__ == '__main__':
 
     print(s.countSmaller([5, 2, 6, 1]))
     print(s.countSmaller1([5, 2, 6, 1]))
+
+"""
+class SpecialBST:
+    
+    def __init__(self, val, left = None, right = None):
+        
+        self.val = val
+        self.left = left
+        self.right = right
+        self.leftSubTreeSize = 0
+
+class Solution:
+    def countSmaller(self, nums: List[int]) -> List[int]:
+        
+        if not nums:
+            return []
+        
+        res = []
+        
+        def bstInsert(node, val, numSmallerElements):
+            
+            if not node:
+                res.append(numSmallerElements)
+                return SpecialBST(val)
+            
+            else:
+                
+                if val > node.val:
+                    node.right = bstInsert(node.right, val, numSmallerElements + 1 + node.leftSubTreeSize)
+                    
+                elif val == node.val:
+                    node.right = bstInsert(node.right, val, numSmallerElements + node.leftSubTreeSize)
+                    
+                else:
+                    
+                    node.leftSubTreeSize += 1
+                    node.left = bstInsert(node.left, val, numSmallerElements)
+                    
+                return node
+            
+        res = [0]
+        
+        root = SpecialBST(nums[-1])
+        
+        for i in range(len(nums) - 2, -1, -1):
+            bstInsert(root, nums[i], 0)
+        return res[::-1]
+"""

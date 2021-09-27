@@ -12,7 +12,8 @@ The chess knight has a unique movement, it may move two squares vertically and o
 A chess knight can move as indicated in the chess diagram below:
 
 
-We have a chess knight and a phone pad as shown below, the knight can only stand on a numeric cell (i.e. blue cell).
+We have a chess knight and a phone pad as shown below,
+the knight can only stand on a numeric cell (i.e. blue cell).
 
 
 Given an integer n, return how many distinct phone numbers of length n we can dial.
@@ -51,8 +52,16 @@ Explanation: Please take care of the mod.
 
 class Solution:
     def knightDialer(self, n: int) -> int:
-        neighbors = {0: [4, 6], 1: [6, 8], 2: [7, 9], 3: [4, 8], 4: [0, 3, 9], 5: [], 6: [0, 1, 7], 7: [2, 6],
-                     8: [1, 3], 9: [2, 4]}
+        neighbors = {0: [4, 6],
+                     1: [6, 8],
+                     2: [7, 9],
+                     3: [4, 8],
+                     4: [0, 3, 9],
+                     5: [],
+                     6: [0, 1, 7],
+                     7: [2, 6],
+                     8: [1, 3],
+                     9: [2, 4]}
         memo = {}
 
         def helper(curr_position, n):
