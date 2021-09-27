@@ -47,23 +47,6 @@ from collections import defaultdict
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
-        # def dfs(s, memo):
-        #     if not s:
-        #         return [[]]
-        #
-        #     if s in memo:
-        #         return memo[s]
-        #
-        #     for word in wordDict:
-        #         if s.startswith(word):
-        #             for sub in dfs(s[len(word):], memo):
-        #                 memo[s].append([word] + sub)
-        #
-        #     print(memo)
-        #     return memo[s]
-        #
-        # return [" ".join(words) for words in dfs(s, defaultdict(list))]
-
         def isWordBreak(s, wordSet):
 
             dp = [False for _ in range(len(s) + 1)]
