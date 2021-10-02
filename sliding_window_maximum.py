@@ -82,6 +82,7 @@ class Solution:
             output.append(nums[max_idx])
         return output
 
+    # O(n) monoqueue
     def maxSlidingWindow1(self, nums: List[int], k: int) -> List[int]:
 
         from collections import deque
@@ -99,7 +100,8 @@ class Solution:
             if q[0] == i - k:
                 q.popleft()
 
-            # if window has k elements add to results (first k-1 windows have <k elements because we start from empty window and add 1 element each iteration)
+            # if window has k elements add to results (first k-1 windows have <k elements
+            # because we start from empty window and add 1 element each iteration)
             if i >= k - 1:
                 res.append(nums[q[0]])
         return res

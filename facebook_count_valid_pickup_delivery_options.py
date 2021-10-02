@@ -6,15 +6,7 @@
 @Date     : 9/13/21 2:14 PM
 
 1359. Count All Valid Pickup and Delivery Options
-Hard
 
-391
-
-52
-
-Add to List
-
-Share
 Given n orders, each order consist in pickup and delivery services.
 
 Count all valid pickup/delivery possible sequences such that delivery(i) is always after of pickup(i).
@@ -69,3 +61,8 @@ class Solution:
             res *= i * (2 * i - 1)
             res = res % p
         return res
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.countOrders(3))

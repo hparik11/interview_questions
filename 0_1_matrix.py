@@ -21,6 +21,7 @@ Output: [[0,0,0],[0,1,0],[1,2,1]]
 
 from typing import List
 
+
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
 
