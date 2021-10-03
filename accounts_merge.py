@@ -43,7 +43,7 @@ class Solution:
             name = acc[0]
 
             # making a graph of common connected gmail
-            # all acc the gamil start with 1 index
+            # all acc the gmail start with 1 index
             for email in acc[1:]:
                 # connect 1st to 2nd email
                 email_graph[acc[1]].add(email)
@@ -99,7 +99,7 @@ class UF:
 
 class Solution2:
     # 196 ms, 82.09%.
-    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+    def accountsMerge(self, accounts):
         uf = UF(len(accounts))
 
         # Creat unions between indexes
@@ -113,7 +113,7 @@ class Solution2:
             idxToName[i] = name
 
         # Append emails to correct index
-        ans = collections.defaultdict(list)
+        ans = defaultdict(list)
         for email, owner in ownership.items():
             ans[uf.find(owner)].append(email)
 
