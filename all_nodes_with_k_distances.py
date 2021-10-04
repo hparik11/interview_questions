@@ -30,6 +30,7 @@ Note that the inputs "root" and "target" are actually TreeNodes.
 The descriptions of the inputs above are just serializations of these objects.
 """
 
+from collections import deque
 
 # Definition for a binary tree node.
 # class TreeNode:

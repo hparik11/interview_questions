@@ -32,10 +32,8 @@ Input: numCourses = 1, prerequisites = []
 Output: [0]
 """
 
-from typing import List
-import collections
-
 from collections import defaultdict
+from typing import List
 
 
 class Graph:

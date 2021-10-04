@@ -43,6 +43,7 @@ Explanation: We don't have enough characters in s to construct 7 palindromes.
 
 from collections import Counter
 
+
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
         """

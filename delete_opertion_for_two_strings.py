@@ -6,16 +6,9 @@
 @Date     : 8/30/21 7:27 PM
 
 583. Delete Operation for Two Strings
-Medium
 
-2081
-
-38
-
-Add to List
-
-Share
-Given two strings word1 and word2, return the minimum number of steps required to make word1 and word2 the same.
+Given two strings word1 and word2, return the minimum number of steps required
+to make word1 and word2 the same.
 
 In one step, you can delete exactly one character in either string.
 
@@ -31,6 +24,8 @@ Example 2:
 Input: word1 = "leetcode", word2 = "etco"
 Output: 4
 """
+
+import collections
 
 
 class Solution:

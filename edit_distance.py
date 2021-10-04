@@ -8,6 +8,7 @@
 
 
 class Solution:
+    # O(3^n)
     def minDistance(self, word1, word2):
         """Naive recursive solution"""
         if not word1 and not word2:

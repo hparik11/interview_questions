@@ -89,7 +89,7 @@ def getMinDistances(blocks, req):
 
 
 def getMaxDistancesAtBlocks(blocks, minDistancesFromBlocks):
-    maxDistancesAtBlocks = [0 for block in blocks]
+    maxDistancesAtBlocks = [0 for _ in blocks]
     for i in range(len(blocks)):
         minDistancesAtBlock = list(map(lambda distances: distances[i], minDistancesFromBlocks))
         maxDistancesAtBlocks[i] = max(minDistancesAtBlock)

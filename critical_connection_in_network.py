@@ -49,7 +49,8 @@ class Graph:
         self.visited[u] = True
         # to check the lowest vertex that this node can reach through its children
         self.low[u] = self.time
-        # the time that this vertex was discovered - useful to identify when a child vertex can reach its parents ancestors
+        # the time that this vertex was discovered - useful to identify when a child
+        # vertex can reach its parents ancestors
         self.disc[u] = self.time
         # a way to record the when a vertex was first encountered
         self.time += 1

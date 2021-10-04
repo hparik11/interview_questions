@@ -29,6 +29,7 @@ Explanation: The input board is shown above and the only valid solution is shown
 """
 
 
+# O(1) time and space
 class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         """
@@ -64,8 +65,15 @@ class Solution:
         # Check col
         if any(board[i][c] == cand for i in range(9)):
             return False
+
         # Check block
         br, bc = 3 * (r // 3), 3 * (c // 3)
-        if any(board[i][j] == cand for i in range(br, br + 3) for j in range(bc, bc + 3)):
-            return False
+        for i in range(3):
+            for j in range(3):
+                r = br + i
+                c = bc + j
+
+                if board[r][c] == cand:
+                    return False
+
         return True

@@ -41,11 +41,10 @@ class Solution1:
 
         return depthSum
 
-    @staticmethod
-    def findDepth(node, depth):
+    def findDepth(self, node, depth):
         if node is None:
             return 0
-        return depth + findDepth(node.left, depth + 1) + findDepth(node.right, depth + 1)
+        return depth + self.findDepth(node.left, depth + 1) + self.findDepth(node.right, depth + 1)
 
 
 class Solution2:
@@ -54,13 +53,12 @@ class Solution2:
         # Write your code here.
         return self.getTreeInfo(root).sumOfAllDepths
 
-    @staticmethod
-    def getTreeInfo(tree):
+    def getTreeInfo(self, tree):
         if tree is None:
             return TreeInfo(0, 0, 0)
 
-        leftTreeInfo = getTreeInfo(tree.left)
-        rightTreeInfo = getTreeInfo(tree.right)
+        leftTreeInfo = self.getTreeInfo(tree.left)
+        rightTreeInfo = self.getTreeInfo(tree.right)
 
         sumOfLeftDepths = leftTreeInfo.sumOfDepths + leftTreeInfo.numNodesInTree
         sumOfRightDepths = rightTreeInfo.sumOfDepths + rightTreeInfo.numNodesInTree

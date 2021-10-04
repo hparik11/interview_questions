@@ -32,7 +32,6 @@ class Solution:
 
         while index <= ri:
             num = nums[index]
-            # print(li, ri, index, nums)
             if num < pivot:
                 nums[index], nums[li] = nums[li], nums[index]
                 li += 1

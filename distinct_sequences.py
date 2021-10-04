@@ -39,6 +39,7 @@ babgbag
 
 
 class Solution:
+    # O(m*n) space
     def numDistinct(self, s: str, t: str) -> int:
 
         memo = {}
@@ -54,16 +55,76 @@ class Solution:
             if (i, j) in memo:
                 return memo[i, j]
 
-            # Always make this recursive call
-            ans = uniqueSubsequences(i + 1, j)
-
             # If the characters match, make the other
             # one and add the result to "ans"
             if s[i] == t[j]:
-                ans += uniqueSubsequences(i + 1, j + 1)
+                ans = uniqueSubsequences(i + 1, j) + uniqueSubsequences(i + 1, j + 1)
+            else:
+                ans = uniqueSubsequences(i + 1, j)
 
             # Cache the answer and return
             memo[i, j] = ans
             return ans
 
         return uniqueSubsequences(0, 0)
+
+    def numDistinct4(self, s: str, t: str) -> int:
+
+        M, N = len(s), len(t)
+
+        # Dynamic Programming table
+        dp = [[0 for i in range(N + 1)] for j in range(M + 1)]
+
+        # Base case initialization
+        for j in range(N + 1):
+            dp[M][j] = 0
+
+        # Base case initialization
+        for i in range(M + 1):
+            dp[i][N] = 1
+
+        # Iterate over the strings in reverse so as to
+        # satisfy the way we've modeled our recursive solution
+        for i in range(M - 1, -1, -1):
+            for j in range(N - 1, -1, -1):
+
+                # Remember, we always need this result
+                dp[i][j] = dp[i + 1][j]
+
+                # If the characters match, we add the
+                # result of the next recursion call (in this
+                # case, the value of a cell in the dp table
+                if s[i] == t[j]:
+                    dp[i][j] += dp[i + 1][j + 1]
+
+        return dp[0][0]
+
+    # O(m*n) space
+    def numDistinct1(self, s, t):
+        l1, l2 = len(s) + 1, len(t) + 1
+        dp = [[1] * l2 for _ in range(l1)]
+        for j in range(1, l2):
+            dp[0][j] = 0
+        for i in range(1, l1):
+            for j in range(1, l2):
+                if s[i - 1] == t[j - 1]:
+                    dp[i][j] = dp[i - 1][j] + dp[i - 1][j - 1]
+                else:
+                    dp[i][j] = dp[i - 1][j]
+
+        return dp[-1][-1]
+
+    # O(n) space
+    def numDistinct2(self, s, t):
+        l1, l2 = len(s) + 1, len(t) + 1
+        cur = [0] * l2
+        cur[0] = 1
+        for i in range(1, l1):
+            pre = cur[:]
+            for j in range(1, l2):
+                if s[i - 1] == t[j - 1]:
+                    cur[j] = pre[j] + pre[j - 1]
+                else:
+                    cur[j] = pre[j]
+
+        return cur[-1]

@@ -48,7 +48,8 @@ class MyHashMap:
             # We do not have anything in this bin, just create a new node
             self.hash_table[index] = ListNode(key, value)
         else:
-            # We do have something in this bin, traverse it checking to see if we have a matching key. If not just append a node to the end of the bin
+            # We do have something in this bin, traverse it checking to see
+            # if we have a matching key. If not just append a node to the end of the bin
             curr_node = self.hash_table[index]
             while True:
                 if curr_node.key == key:

@@ -55,7 +55,7 @@ class Solution:
                 nums[i] = nums[queue[0]] + num
 
             while queue and nums[queue[-1]] < nums[i]:
-                # delet all the sequence that smaller than current sum, becaus there will never be
+                # delete all the sequence that smaller than current sum, becaus there will never be
                 # considers ==> smaller than current sequence, and end before current sequence
                 queue.pop()
 

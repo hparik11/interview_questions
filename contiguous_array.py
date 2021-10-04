@@ -28,7 +28,7 @@ class Solution:
     https://leetcode.com/problems/contiguous-array/discuss/99655/Python-O(n)-Solution-with-Visual-Explanation
     """
 
-    def findMaxLength(self, nums: List[int]) -> int:
+    def findMaxLength(self, nums) -> int:
         count = 0
         max_length = 0
 

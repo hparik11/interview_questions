@@ -65,8 +65,7 @@ Note that the solution remains the same since 5 and 6 are in the same location a
 #         self.left = left
 #         self.right = right
 
-from collections import OrderedDict, deque
-import bisect
+from collections import defaultdict, deque
 
 
 class Solution:

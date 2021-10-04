@@ -17,7 +17,8 @@ from typing import List
 
 
 class Solution:
-    def jump(self, nums: List[int]) -> int:
+    @staticmethod
+    def jump(nums: List[int]) -> int:
         currIndex = 0
         lastIndex = len(nums) - 1
         prevMaxJump = 0

@@ -67,17 +67,18 @@ class Solution:
                     # case '-'
                     self.dfs(num, target, i + 1, curr_total - val, -val, expr + '-' + str(val), result)
                     # case '*'
-                    """
-                    For someone who tries to figure why we use last,
-                    Imagine you are currently evaluating the expression 5 + 2 * 3, the dfs method has last = 2, cur= 7,
-                    To evaluate expression A + B * C, it should be read with multiplication taking precedence, A + (B * C), so result should be 5 + (2 * 3) => 11. Without last, one could end up calculating result as (5+2)*3 => 21
+                    """For someone who tries to figure why we use last, Imagine you are currently evaluating the 
+                    expression 5 + 2 * 3, the dfs method has last = 2, cur= 7, To evaluate expression A + B * C, 
+                    it should be read with multiplication taking precedence, A + (B * C), so result should be 5 + (2 
+                    * 3) => 11. Without last, one could end up calculating result as (5+2)*3 => 21 
                     
                     Hence the expression, cur - last + last * val => 7-2 + (2 * 3) = 11
                     """
                     self.dfs(num, target, i + 1, curr_total - prev_val + prev_val * val, prev_val * val,
                              expr + '*' + str(val), result)
                     # can also extend to '/' case
-                    # self.dfs(num, target, i+1, curr_total - prev_val + prev_val * 1.0 / val, prev_val * 1.0 / val, expr + '/' + str(val), result)
+                    # self.dfs(num, target, i+1, curr_total - prev_val + prev_val * 1.0 / val, prev_val * 1.0 / val,
+                    #           expr + '/' + str(val), result)
                 if num[pos] == '0':  # deal with '025' case, string starts with '0'
                     break
 

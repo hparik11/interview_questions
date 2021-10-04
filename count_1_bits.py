@@ -31,12 +31,14 @@ class Solution(object):
         """
         cnt = 0
 
-        for i in range(32):
-            cnt += ((n >> i) & 1)
+        while n != 0:
+            if n & 1 == 1:
+                cnt += 1
+            n >>= 1
 
         print(cnt)
 
 
 if __name__ == '__main__':
     s = Solution()
-    s.hammingWeight(int(b'0000111000', 10))
+    s.hammingWeight(int(b'00000000000000000000000000001011', 2))

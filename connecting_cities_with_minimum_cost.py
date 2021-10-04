@@ -96,7 +96,8 @@ Kruskal's Algorithm:
 
 
 class Solution1:
-    # O(ElogE + E) where "ElogE" is the time it takes to sort all the edges to non-decreasing order, and "E" is the time it takes to form the MST with union find.
+    # O(ElogE + E) where "ElogE" is the time it takes to sort all
+    # the edges to non-decreasing order, and "E" is the time it takes to form the MST with union find.
     def minimumCost(self, n: int, connections: List[List[int]]) -> int:
 
         connections.sort(key=lambda x: x[2])

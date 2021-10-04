@@ -32,13 +32,13 @@ def dfs(n, curr, res, pickup, delivery):
         if i not in pickup:
             pickup.add(i)
             dfs(n, curr + ['P' + str(i + 1)], res, pickup, delivery)
-            # pickup.remove(i)
+            pickup.remove(i)
 
     for j in range(n):
         if j in pickup and j not in delivery:
             delivery.add(j)
             dfs(n, curr + ['D' + str(j + 1)], res, pickup, delivery)
-            # delivery.remove(j)
+            delivery.remove(j)
 
     return
 
@@ -47,4 +47,4 @@ if __name__ == '__main__':
 
     all_combo = generateValidPickupDeliveriesCombination(3)
 
-    print(len(all_combo))
+    print(all_combo)

@@ -6,15 +6,7 @@
 @Date     : 10/2/21 7:30 PM
 
 156. Binary Tree Upside Down
-Medium
 
-41
-
-76
-
-Add to List
-
-Share
 Given the root of a binary tree, turn the tree upside down and return the new root.
 
 You can turn a binary tree upside down with the following steps:

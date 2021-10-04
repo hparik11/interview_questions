@@ -6,7 +6,8 @@
 @Date     : 7/8/21 10:11 PM
 
 Count number of occurrences (or frequency) in a sorted array
-Given a sorted array arr[] and a number x, write a function that counts the occurrences of x in arr[]. Expected time complexity is O(Logn)
+Given a sorted array arr[] and a number x, write a function that counts the occurrences of x in arr[].
+Expected time complexity is O(Logn)
 
 Examples:
 
@@ -37,7 +38,7 @@ def count(arr, x, n):
     # Else get the index of last occurrence
     # of x. Note that we are only looking
     # in the subarray after first occurrence
-    j = last(arr, i, n - 1, x, n);
+    j = last(arr, i, n - 1, x, n)
 
     # return count
     return j - i + 1;

@@ -6,12 +6,14 @@
 @Date     : 8/6/21 11:22 PM
 
 675. Cut Off Trees for Golf Event
-You are asked to cut off all the trees in a forest for a golf event. The forest is represented as an m x n matrix. In this matrix:
+You are asked to cut off all the trees in a forest for a golf event.
+The forest is represented as an m x n matrix. In this matrix:
 
 0 means the cell cannot be walked through.
 1 represents an empty cell that can be walked through.
 A number greater than 1 represents a tree in a cell that can be walked through, and this number is the tree's height.
-In one step, you can walk in any of the four directions: north, east, south, and west. If you are standing in a cell with a tree, you can choose whether to cut it off.
+In one step, you can walk in any of the four directions: north, east, south, and west. If you are standing in a cell
+with a tree, you can choose whether to cut it off.
 
 You must cut off the trees in order from shortest to tallest. When you cut off a tree, the value at its cell becomes 1 (an empty cell).
 
@@ -63,23 +65,24 @@ class Solution:
         # print("heap: {}".format(pq))
 
         # takes in starting position and next tree position, returns min steps to get to that next tree position
-        def bfs(x, y, nextX, nextY) -> int:
-            queue = collections.deque([(x, y, 0)])
-            seen = {(x, y)}
+        def bfs(curr_x, curr_y, nextX, nextY) -> int:
+            queue = collections.deque([(curr_x, curr_y, 0)])
+            seen = {(curr_x, curr_y)}
             # print("starting at: ({},{})".format(x,y))
             # keep BFS searching until we find target tree or tried all paths
             while queue:
-                x, y, steps = queue.popleft()
+                curr_x, curr_y, steps = queue.popleft()
 
-                if x == nextX and y == nextY:
+                if curr_x == nextX and curr_y == nextY:
                     # found the next tree, chop it down and return depth
-                    forest[x][y] = 1
+                    forest[curr_x][curr_y] = 1
                     # print("ending at: ({},{}) after {} steps".format(x,y,steps))
                     return steps
 
-                # append adjacent nodes (if they are a valid position i.e. height >= 1, within bounds of forest, and not already used)
+                # append adjacent nodes (if they are a valid position i.e. height >= 1,
+                # within bounds of forest, and not already used)
                 for dx, dy in [(-1, 0), (0, 1), (0, -1), (1, 0)]:
-                    adjX, adjY = x + dx, y + dy
+                    adjX, adjY = curr_x + dx, curr_y + dy
                     if (0 <= adjX < m and 0 <= adjY < n) and (forest[adjX][adjY] >= 1) and ((adjX, adjY) not in seen):
                         queue.append((adjX, adjY, steps + 1))
                         seen.add((adjX, adjY))
