@@ -42,9 +42,10 @@ Explanation: The next greater element for each value of nums1 is as follows:
 - 4 is underlined in nums2 = [1,2,3,4]. There is no next greater element, so the answer is -1.
 """
 
-
 import collections
 from typing import List
+
+
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
 

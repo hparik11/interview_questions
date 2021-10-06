@@ -20,29 +20,7 @@ Input:
 Output:
 [[5,0], [7,0], [5,2], [6,1], [4,4], [7,1]]
 """
-import heapq
 from typing import List
-
-
-class Person:
-    def __init__(self, h, k):
-        self.h = h
-        self.k = k
-
-    def __lt__(self, other):
-        # if self.k == other.k:
-        #     return self.h < other.h
-        # elif self.h == other.h:
-        #     return self.k < other.k
-        # elif self.k < other.k:
-        #     return self.k < other.k
-        # else:
-        #     return self.h < other.h
-
-        if self.h == other.h:
-            return self.k < other.k
-        else:
-            return self.h < other.h
 
 
 class Solution:

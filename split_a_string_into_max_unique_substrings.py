@@ -18,7 +18,8 @@ Example 1:
 
 Input: s = "ababccc"
 Output: 5
-Explanation: One way to split maximally is ['a', 'b', 'ab', 'c', 'cc']. Splitting like ['a', 'b', 'a', 'b', 'c', 'cc'] is not valid as you have 'a' and 'b' multiple times.
+Explanation: One way to split maximally is ['a', 'b', 'ab', 'c', 'cc'].
+Splitting like ['a', 'b', 'a', 'b', 'c', 'cc'] is not valid as you have 'a' and 'b' multiple times.
 Example 2:
 
 Input: s = "aba"

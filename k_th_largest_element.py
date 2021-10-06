@@ -36,7 +36,7 @@ class Solution:
                     nums[j], nums[j + 1] = nums[j + 1], nums[j]
         return nums[len(nums) - k]
 
-    # Avergae - O(N) | worst - O(N^2)
+    # Average - O(N) | worst - O(N^2)
     def findKthLargest3(self, nums: List[int], k: int) -> int:
 
         def quickSortUtil(nums, startIndex, endIndex):

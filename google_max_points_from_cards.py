@@ -9,9 +9,11 @@ Medium
 Add to List
 
 Share
-There are several cards arranged in a row, and each card has an associated number of points. The points are given in the integer array cardPoints.
+There are several cards arranged in a row, and each card has an associated number of points.
+The points are given in the integer array cardPoints.
 
-In one step, you can take one card from the beginning or from the end of the row. You have to take exactly k cards.
+In one step, you can take one card from the beginning or from the end of the row.
+You have to take exactly k cards.
 
 Your score is the sum of the points of the cards you have taken.
 

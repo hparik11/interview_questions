@@ -1,15 +1,8 @@
 """
 593. Valid Square
-Medium
 
-551
-
-655
-
-Add to List
-
-Share
-Given the coordinates of four points in 2D space p1, p2, p3 and p4, return true if the four points construct a square.
+Given the coordinates of four points in 2D space p1, p2, p3 and p4,
+return true if the four points construct a square.
 
 The coordinate of a point pi is represented as [xi, yi]. The input is not given in any order.
 

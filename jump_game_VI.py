@@ -37,8 +37,8 @@ Input: nums = [1,-5,-20,4,-1,3,-6,-3], k = 2
 Output: 0
 """
 
-from typing import List
 import heapq
+from typing import List
 
 
 class Solution:
@@ -57,7 +57,7 @@ class Solution:
             while priority_queue[0][1] < i - k:
                 heapq.heappop(priority_queue)
 
-            score = nums[i] - priority_queue[0][0]
+            score = nums[i] + (-priority_queue[0][0])
 
             heapq.heappush(priority_queue, (-score, i))
 

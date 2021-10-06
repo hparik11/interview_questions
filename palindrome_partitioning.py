@@ -25,7 +25,7 @@ Output: [["a"]]
 
 """
 Time Complexity : O(N *2^N)
-, where N is the length of string ss. This is the worst-case time complexity when all the possible substrings are palindrome.
+, where N is the length of string s. This is the worst-case time complexity when all the possible substrings are palindrome.
 
 Space Complexity: O(N)
 """

@@ -58,14 +58,12 @@ class Solution:
             if k != 0:
                 prefixSum = prefixSum % k
 
-            print(prefixModDictn)
+            # print(prefixModDictn)
             if prefixSum in prefixModDictn:
                 if (i - prefixModDictn[prefixSum]) > 1:
                     return True
             else:
                 prefixModDictn[prefixSum] = i
-
-
 
         return False
 

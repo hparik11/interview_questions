@@ -1,7 +1,9 @@
 """
 261. Graph Valid Tree
 
-You have a graph of n nodes labeled from 0 to n - 1. You are given an integer n and a list of edges where edges[i] = [ai, bi] indicates that there is an undirected edge between nodes ai and bi in the graph.
+You have a graph of n nodes labeled from 0 to n - 1.
+You are given an integer n and a list of edges where edges[i] = [ai, bi]
+indicates that there is an undirected edge between nodes ai and bi in the graph.
 
 Return true if the edges of the given graph make up a valid tree, and false otherwise.
 
@@ -15,6 +17,8 @@ Example 2:
 Input: n = 5, edges = [[0,1],[1,2],[2,3],[1,3],[1,4]]
 Output: false
 """
+
+from collections import defaultdict, deque
 
 
 class UnionFind:
@@ -47,9 +51,6 @@ class UnionFind:
         return True
 
 
-from collections import defaultdict, deque
-
-
 class Solution:
     """
     Complexity Analysis
@@ -63,6 +64,7 @@ class Solution:
     Space Complexity : O(N).
 
     """
+
     def validTree_unionfind(self, n: int, edges) -> bool:
 
         uf = UnionFind(n)

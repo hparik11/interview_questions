@@ -14,7 +14,7 @@ class Solution:
                     sub_array.append(final_array[i - 2][j - 1] + final_array[i - 2][j - 2])
             final_array.append(sub_array)
 
-        return (final_array)
+        return final_array
 
     # def getRow(self, rowIndex: int) -> List[int]:
     #     return self.generate(rowIndex+1)[rowIndex]

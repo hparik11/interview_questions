@@ -27,8 +27,6 @@ Output: [[3,3],[-2,4]]
 """
 from typing import List
 
-import heapq
-
 
 class Solution:
     def euclidean_distance(self, x, y):

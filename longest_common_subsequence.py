@@ -18,6 +18,8 @@ Space complexity : O(M⋅N).
 We need to store the answer for each of the M⋅N subproblems.
 """
 
+import collections
+
 
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:

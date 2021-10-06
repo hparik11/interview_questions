@@ -32,6 +32,7 @@ Output: 4
 Explanation: Can't change any 0 to 1, only one island with area = 4.
 """
 
+from collections import deque
 
 class Solution:
     def largestIsland(self, grid: List[List[int]]) -> int:

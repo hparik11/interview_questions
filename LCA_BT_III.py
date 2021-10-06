@@ -53,34 +53,34 @@ class Node:
 class Solution:
     def lowestCommonAncestor(self, p: 'Node', q: 'Node') -> 'Node':
 
-        def findDescendant(node, targetNode):
+        def find_descendant(node, targetNode):
             if not node:
                 return
 
             if node == targetNode:
                 return True
 
-            leftSide = findDescendant(node.left, targetNode)
-            rightSide = findDescendant(node.right, targetNode)
+            leftSide = find_descendant(node.left, targetNode)
+            rightSide = find_descendant(node.right, targetNode)
 
             if leftSide or rightSide:
                 return True
 
             return False
 
-        def findNodeDepth(node, depth):
+        def find_node_depth(node, depth):
             if node.parent is None:
                 return depth
 
-            return findNodeDepth(node.parent, depth + 1)
+            return find_node_depth(node.parent, depth + 1)
 
-        if findDescendant(p, q):
+        if find_descendant(p, q):
             return p
-        elif findDescendant(q, p):
+        elif find_descendant(q, p):
             return q
 
-        pDepth = findNodeDepth(p, 0)
-        qDepth = findNodeDepth(q, 0)
+        pDepth = find_node_depth(p, 0)
+        qDepth = find_node_depth(q, 0)
 
         # Move the lower pointer up so that they are each at the same level.
         # For the smaller depth (p_depth < q_depth or q_depth < p_depth),

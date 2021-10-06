@@ -30,10 +30,11 @@ class Solution:
     def maximumSwap(self, num: int) -> int:
         s = list(str(num))
         n = len(s)
-
+        i = 0
         while i < n - 1:  # find index where s[i] < s[i+1], meaning a chance to flip
             if s[i] < s[i + 1]:
                 break
+            i += 1
 
         if i == n-1:
             return num  # if nothing find, return num

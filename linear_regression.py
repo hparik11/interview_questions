@@ -1,4 +1,3 @@
-import numpy as np
 import math
 from typing import List
 
@@ -12,7 +11,7 @@ def variance(values):
     return sum([(x - mean(values)) ** 2 for x in values]) / (len(values) - 1)
 
 
-def standard_daviation(values):
+def standard_deviation(values):
     return math.sqrt(variance(values))
 
 
@@ -55,7 +54,7 @@ if __name__ == "__main__":
     values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     print("Mean : %.3f" % mean(values))
     print("Variance : %.3f" % variance(values))
-    print("Stand Daviation : %.3f" % standard_daviation(values))
+    print("Stand Daviation : %.3f" % standard_deviation(values))
     # print(variance(values))
     # print(standard_daviation(values))
 

@@ -7,7 +7,8 @@
 
 1004. Max Consecutive Ones III
 
-Given a binary array nums and an integer k, return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
+Given a binary array nums and an integer k,
+return the maximum number of consecutive 1's in the array if you can flip at most k 0's.
 
 
 
@@ -27,13 +28,12 @@ Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
 
 class Solution:
-    def longestOnes(self, nums: List[int], k: int) -> int:
+    def longestOnes(self, nums, k: int) -> int:
 
         start = 0
         maxSeq = 0
 
         for i in range(len(nums)):
-
             if nums[i] == 0 and k:
                 k -= 1
 
@@ -43,5 +43,11 @@ class Solution:
                 start += 1
 
             maxSeq = max(maxSeq, i - start + 1)
+            print(i, maxSeq)
 
         return maxSeq
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.longestOnes([1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2))

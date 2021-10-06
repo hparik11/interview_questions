@@ -27,6 +27,8 @@ def subarraySort(array):
             minValue = min(minValue, num)
             maxValue = max(maxValue, num)
 
+    print(minValue, maxValue)
+
     if minValue == float("inf") or maxValue == float("-inf"):
         return [-1, -1]
 
@@ -48,3 +50,7 @@ def isOutOfOrder(index, num, array):
         return num < array[index - 1]
     else:
         return array[index + 1] < num or num < array[index - 1]
+
+
+if __name__ == '__main__':
+    print(subarraySort([1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19]))

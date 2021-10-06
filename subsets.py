@@ -21,7 +21,6 @@ Example 2:
 Input: nums = [0]
 Output: [[],[0]]
 """
-from typing import List
 
 
 class Solution:
@@ -34,6 +33,7 @@ class Solution:
 
         if index > len(nums):
             return
+
         res.append(curr[:])
 
         for i in range(index, len(nums)):

@@ -18,8 +18,6 @@ Would return 'world' and 'would' since there are 3 wildcards between w and d
 
 """
 
-import collections
-
 
 class Trie:
     def __init__(self):

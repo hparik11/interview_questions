@@ -28,7 +28,7 @@ class Solution:
         trie = Trie()
         for each_word in words:
             trie.add(word=each_word)
-        print(trie.root)
+        # print(trie.root)
         visited = [[False for _ in row] for row in board]
         finalWords = {}
         r = len(board)
@@ -36,7 +36,8 @@ class Solution:
 
         for i in range(r):
             for j in range(c):
-                self.dfs(i, j, board, visited, trie.root, finalWords, r, c)
+                if board[i][j] in trie.root:
+                    self.dfs(i, j, board, visited, trie.root, finalWords, r, c)
 
         return list(finalWords.keys())
 
@@ -80,7 +81,11 @@ class Trie:
 
 if __name__ == "__main__":
     s = Solution()
-    print(s.findWords([["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]],
+    print(s.findWords([["o", "a", "a", "n"],
+                       ["e", "t", "a", "e"],
+                       ["i", "h", "k", "r"],
+                       ["i", "f", "l", "v"]],
+
                       ["oath", "pea", "eat", "rain"]))
 
     print(s.findWords([["a", "a"]], ["aaa"]))

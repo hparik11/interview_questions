@@ -1,106 +1,70 @@
-# -*- coding: utf-8 -*-
-# @Author: hparikh
-# @FileName: sudoku_solver.py
-# @Date:   9/27/20, Sun
 """
-Valid Sudoku
+37. Sudoku Solver
 
-Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated according to the following rules:
+Write a program to solve a Sudoku puzzle by filling the empty cells.
 
-Each row must contain the digits 1-9 without repetition.
-Each column must contain the digits 1-9 without repetition.
-Each of the 9 3x3 sub-boxes of the grid must contain the digits 1-9 without repetition.
+A sudoku solution must satisfy all of the following rules:
 
-A partially filled sudoku which is valid.
+Each of the digits 1-9 must occur exactly once in each row.
+Each of the digits 1-9 must occur exactly once in each column.
+Each of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.
+The '.' character indicates empty cells.
 
-The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+
 
 Example 1:
 
-Input:
-[
-  ["5","3",".",".","7",".",".",".","."],
-  ["6",".",".","1","9","5",".",".","."],
-  [".","9","8",".",".",".",".","6","."],
-  ["8",".",".",".","6",".",".",".","3"],
-  ["4",".",".","8",".","3",".",".","1"],
-  ["7",".",".",".","2",".",".",".","6"],
-  [".","6",".",".",".",".","2","8","."],
-  [".",".",".","4","1","9",".",".","5"],
-  [".",".",".",".","8",".",".","7","9"]
-]
-Output: true
-Example 2:
 
-Input:
-[
-  ["8","3",".",".","7",".",".",".","."],
-  ["6",".",".","1","9","5",".",".","."],
-  [".","9","8",".",".",".",".","6","."],
-  ["8",".",".",".","6",".",".",".","3"],
-  ["4",".",".","8",".","3",".",".","1"],
-  ["7",".",".",".","2",".",".",".","6"],
-  [".","6",".",".",".",".","2","8","."],
-  [".",".",".","4","1","9",".",".","5"],
-  [".",".",".",".","8",".",".","7","9"]
-]
-Output: false
-Explanation: Same as Example 1, except with the 5 in the top left corner being
-    modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
-Note:
+Input: board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+Output: [["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]]
+Explanation: The input board is shown above and the only valid solution is shown below:
 
-A Sudoku board (partially filled) could be valid but is not necessarily solvable.
-Only the filled cells need to be validated according to the mentioned rules.
-The given board contain only digits 1-9 and the character '.'.
-The given board size is always 9x9.
+
 """
-
-from typing import List
 
 
 class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        self.backtrack(board, 0, 0)
 
-    def check_duplicates_in_array(self, value, array):
-        return value in array
+    def backtrack(self, board: List[List[str]], r: int, c: int) -> bool:
+        # Go to next empty space
+        while board[r][c] != '.':
+            c += 1
+            if c == 9:
+                c, r = 0, r + 1
+            if r == 9:
+                return True
 
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
-        row = len(board)
-        col = len(board[0])
+        # Try all options, backtracking if not work
+        for k in range(1, 10):
+            if self.isValidSudokuMove(board, r, c, str(k)):
+                board[r][c] = str(k)
+                if self.backtrack(board, r, c):
+                    return True
 
-        row_map = [{} for _ in range(row)]
-        col_map = [{} for _ in range(col)]
-        box_map = [{} for _ in range(row)]
+        board[r][c] = '.'
 
-        for i in range(row):
-            for j in range(col):
-                if board[i][j] != '.':
-                    if board[i][j] in row_map[i] or board[i][j] in col_map[j]:
-                        return False
+        return False
 
-                    row_map[i][board[i][j]] = True
+    def isValidSudokuMove(self, board: List[List[str]], r: int, c: int, cand: str) -> bool:
+        # Check row
+        if any(board[r][j] == cand for j in range(9)):
+            return False
+        # Check col
+        if any(board[i][c] == cand for i in range(9)):
+            return False
 
-                    col_map[j][board[i][j]] = True
+        # Check block
+        br, bc = 3 * (r // 3), 3 * (c // 3)
+        for i in range(3):
+            for j in range(3):
+                rowToCheck = br + i
+                colToCheck = bc + j
 
-                    box_index = (i // 3) * 3 + j // 3
-
-                    if board[i][j] in box_map[box_index]:
-                        return False
-
-                    box_map[box_index][board[i][j]] = True
-
-        print(row_map)
+                if board[rowToCheck][colToCheck] == cand:
+                    return False
         return True
-
-
-if __name__ == '__main__':
-    s = Solution()
-    print(s.isValidSudoku([["5", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-                           [".", "9", "8", ".", ".", ".", ".", "6", "."], ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-                           ["4", ".", ".", "8", ".", "3", ".", ".", "1"], ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-                           [".", "6", ".", ".", ".", ".", "2", "8", "."], [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-                           [".", ".", ".", ".", "8", ".", ".", "7", "9"]]))
-    print(s.isValidSudoku([["8", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."],
-                           [".", "9", "8", ".", ".", ".", ".", "6", "."], ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
-                           ["4", ".", ".", "8", ".", "3", ".", ".", "1"], ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
-                           [".", "6", ".", ".", ".", ".", "2", "8", "."], [".", ".", ".", "4", "1", "9", ".", ".", "5"],
-                           [".", ".", ".", ".", "8", ".", ".", "7", "9"]]))

@@ -30,16 +30,15 @@ Input: nums =
 Output: 4
 Explanation: The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
 """
-
+import collections
 from typing import List
 
 
 class Solution:
+    def is_valid(self, x, y, row, cols):
+        return 0 <= x < row and 0 <= y < cols
+
     def longestIncreasingPath(self, matrix: List[List[int]]) -> int:
-        def is_valid(i, j, row1, col1):
-            if i < 0 or i > row1 - 1 or j < 0 or j > col1 - 1:
-                return False
-            return True
 
         def dfs(i, j, row1, col1, visited, dp, matrix):
             if dp[i][j] != 0:
@@ -50,7 +49,7 @@ class Solution:
             count = 1
             for x, y in directions:
                 new_x, new_y = i + x, j + y
-                if is_valid(new_x, new_y, row1, col1) \
+                if self.is_valid(new_x, new_y, row1, col1) \
                         and not visited[new_x][new_y] \
                         and matrix[i][j] < matrix[new_x][new_y]:
                     count = max(count, 1 + dfs(new_x, new_y, row1, col1, visited, dp, matrix))
@@ -73,6 +72,44 @@ class Solution:
 
         print(dp)
         return maxCount
+
+    def longestIncreasingPath2(self, matrix: List[List[int]]) -> int:
+        rows = len(matrix)
+        if rows == 0:
+            return 0
+
+        cols = len(matrix[0])
+        indegree = [[0 for x in range(cols)] for y in range(rows)]
+        directions = [(0, -1), (0, 1), (1, 0), (-1, 0)]
+
+        for x in range(rows):
+            for y in range(cols):
+                for direction in directions:
+                    nx, ny = x + direction[0], y + direction[1]
+                    if self.is_valid(nx, ny, rows, cols):
+                        if matrix[nx][ny] < matrix[x][y]:
+                            indegree[x][y] += 1
+
+        queue = collections.deque()
+        for x in range(rows):
+            for y in range(cols):
+                if indegree[x][y] == 0:
+                    queue.append((x, y))
+
+        path_len = 0
+        while queue:
+            sz = len(queue)
+            for i in range(sz):
+                x, y = queue.popleft()
+                for direction in directions:
+                    nx, ny = x + direction[0], y + direction[1]
+                    if self.is_valid(nx, ny, rows, cols):
+                        if matrix[nx][ny] > matrix[x][y]:
+                            indegree[nx][ny] -= 1
+                            if indegree[nx][ny] == 0:
+                                queue.append((nx, ny))
+            path_len += 1
+        return path_len
 
 
 if __name__ == '__main__':

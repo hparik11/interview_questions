@@ -25,6 +25,7 @@ A[i][j] is a lowercase letter
 from collections import Counter
 from typing import List
 
+
 class Solution:
     def commonChars(self, A: List[str]) -> List[str]:
         """
@@ -57,4 +58,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.commonChars(["cool","lock","cook"]))
+    print(s.commonChars(["cool", "lock", "cook"]))

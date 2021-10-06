@@ -53,7 +53,8 @@ class Solution:
         visited[(x, y)] = True
         for each in directions:
             new_x, new_y = x + each[0], y + each[1]
-            if self.is_valid(new_x, new_y, row, col) and (new_x, new_y) not in visited and treasures[new_x][new_y] != 'D':
+            if self.is_valid(new_x, new_y, row, col) and (new_x, new_y) not in visited \
+                    and treasures[new_x][new_y] != 'D':
                 neighbors.append((new_x, new_y))
 
         return neighbors

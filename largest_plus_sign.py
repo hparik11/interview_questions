@@ -51,7 +51,7 @@ class Solution1(object):
 
 class Solution2:
     @staticmethod
-    def orderOfLargestPlusSign(n: int, mines: List[List[int]]) -> int:
+    def orderOfLargestPlusSign(n: int, mines) -> int:
 
         rows = n
         cols = n

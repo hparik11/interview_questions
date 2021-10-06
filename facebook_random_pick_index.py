@@ -30,6 +30,8 @@ solution.pick(1); // It should return 0. Since in the array only nums[0] is equa
 solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
 """
 
+import random
+
 
 class Solution:
 

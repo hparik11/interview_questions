@@ -6,7 +6,8 @@
 Probability of getting K heads in N coin tosses
 Last Updated: 12-05-2020
 
-Given two integers N and R. The task is to calculate the probability of getting exactly r heads in n successive tosses.
+Given two integers N and R. The task is to calculate the probability of getting
+exactly r heads in n successive tosses.
 
 A fair coin has an equal probability of landing a head or a tail on each toss.
 

@@ -51,7 +51,7 @@ class Solution:
         while low <= high:
             mid = (low + high) // 2
             midRow = matrix[mid]
-            print(midRow)
+            # print(midRow)
             if midRow[0] > target:
                 high -= 1
             elif midRow[0] <= target <= midRow[-1]:

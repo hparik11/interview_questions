@@ -8,7 +8,6 @@
 
 # Example of making predictions
 from math import sqrt
-import numpy as np
 
 
 # calculate the Euclidean distance between two vectors
@@ -46,7 +45,7 @@ def hamming_distance(string1, string2):
 
 
 def manhattan_distance(list1, list2):
-    return sum(abs(val1-val2) for val1, val2 in zip(list1, list2))
+    return sum(abs(val1 - val2) for val1, val2 in zip(list1, list2))
 
 
 # Locate the most similar neighbors

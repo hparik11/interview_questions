@@ -106,10 +106,13 @@ class Solution2:
 
 # Complexity Analysis
 #
-# Time complexity: O(n * log(sum of array)). The binary search costs O(log(sum of array)), where sum of array is the sum of elements in nums.
-# For each computation of F(x), the time complexity is O(n) since we only need to go through the whole array.
+# Time complexity: O(n * log(sum of array)). The binary search costs
+# O(log(sum of array)), where sum of array is the sum of elements in nums.
+# For each computation of F(x), the time complexity is O(n) since we only need
+# to go through the whole array.
 #
-# Space complexity: O(1) space complexity without taking the output list into account, and O(n) to store the output list.
+# Space complexity: O(1) space complexity without taking the output list into
+# account, and O(n) to store the output list.
 class Solution3:
     def splitArray(self, nums: List[int], m: int) -> int:
         # First, understand WHAT we are binary searching over
@@ -126,7 +129,8 @@ class Solution3:
 
         # now that we have our minResult and maxResult boundaries, we can begin searching within this space
         # What are we searching for?
-        # The smallest value within this space such that we can form m subarrays from nums and none of their sums exceed that value
+        # The smallest value within this space such that we can form m subarrays from
+        # nums and none of their sums exceed that value
         finalResult = float('inf')
         while minResult <= maxResult:
             # Start by checking if the value in the middle of the search space satisfies this desired outcome

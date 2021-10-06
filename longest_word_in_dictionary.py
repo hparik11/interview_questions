@@ -51,7 +51,7 @@ class Solution:
             return False
 
         wordSet = set(words)
-        words = sorted(wordSet, key=lambda x: (-len(x), x))
+        words = sorted(wordSet, key=len, reverse=True)
 
         dp = {}
 

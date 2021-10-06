@@ -36,8 +36,8 @@ class LogisticRegression:
     def predict(self, X):
         linear_model = np.dot(X, self.weights) + self.bias
         y_predicted = self._sigmoid(linear_model)
-        y_predicted_clss = [1 if i > 0.5 else 0 for i in y_predicted]
-        return y_predicted_clss
+        y_predicted_class = [1 if i > 0.5 else 0 for i in y_predicted]
+        return y_predicted_class
 
 
 if __name__ == '__main__':

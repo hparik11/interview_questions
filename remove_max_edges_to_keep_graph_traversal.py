@@ -95,7 +95,7 @@ class Solution:
                 if not unionFind_alice.union(node1, node2) or not unionFind_bob.union(node1, node2):
                     redundant_edges += 1
 
-        # Find redundant edges for individual traversal or type = 1/2
+        # Find redundant edges for individual traversal or type = 1 or 2
         for edge_type, node1, node2 in edges:
             if edge_type == 1:
                 if not unionFind_alice.union(node1, node2):
