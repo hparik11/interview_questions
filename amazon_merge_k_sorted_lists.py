@@ -42,12 +42,13 @@ class Solution(object):
 
         Time complexity : O(Nlog k)
 
-        The comparison cost will be reduced to O(\log k)O(logk) for every pop and insertion to priority queue. But finding the node with the smallest value just costs O(1)O(1) time.
+        The comparison cost will be reduced to O(\log k)O(logk) for every pop and 
+        insertion to priority queue. But finding the node with the smallest value just costs O(1) time.
         There are NN nodes in the final linked list.
         Space complexity :
 
         O(n) Creating a new linked list costs O(n) space.
-        O(k) The code above present applies in-place method which cost O(1)O(1) space. And the priority queue (often implemented with heaps) costs O(k)O(k) space (it's far less than NN in most situations).
+        O(k) The code above present applies in-place method which cost O(1) space. And the priority queue (often implemented with heaps) costs O(k)O(k) space (it's far less than NN in most situations).
     """
 
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:

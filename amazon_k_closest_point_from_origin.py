@@ -32,6 +32,8 @@ Explanation: The answer [[-2,4],[3,3]] would also be accepted.
 """
 
 import heapq
+import math
+from typing import List
 
 
 class Solution:
@@ -40,17 +42,23 @@ class Solution:
         return math.sqrt(x ** 2 + y ** 2)
 
     def kClosest(self, points: List[List[int]], K: int) -> List[List[int]]:
-        # heap = []
-        #
-        # for each in points:
-        #     if len(heap) == K:
-        #         heapq.heappushpop(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
-        #     else:
-        #         heapq.heappush(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
-        #
-        # return [(x,y) for (dist,x, y) in heap]
+        heap = []
+        
+        for each in points:
+            if len(heap) == K:
+                heapq.heappushpop(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
+            else:
+                heapq.heappush(heap, (-1.0 * self.euclidean_distance(each[0], each[1]), each[0], each[1]))
 
-        if K >= len(points):
-            return points
+            print(list(heap))
+        return [(x,y) for (dist,x, y) in heap]
 
-        return sorted(points, key=lambda i: self.euclidean_distance(i[0], i[1]))[:K]
+        # if K >= len(points):
+        #     return points
+
+        # return sorted(points, key=lambda i: self.euclidean_distance(i[0], i[1]))[:K]
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.kClosest([[1,3],[-2,2]], 1))

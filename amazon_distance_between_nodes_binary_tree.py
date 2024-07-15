@@ -39,6 +39,9 @@ class Solution:
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
 
+        if left is not None: print("Left", left.val)
+        if right is not None: print("Right", right.val)
+
         # p and q appears in left and right respectively, then their ancestor is root
         if left is not None and right is not None:
             return root
@@ -73,8 +76,8 @@ if __name__ == '__main__':
     root.left.right = Node(5)
     root.right.left = Node(6)
     root.right.right = Node(7)
-    root.right.left.right = Node(8)
+    root.right.left.left = Node(8)
 
     s = Solution()
 
-    print(s.findDistance(root, Node(2), Node(8)))
+    print(s.findDistance(root, Node(6), Node(8)))

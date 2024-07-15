@@ -3,9 +3,14 @@
 # @FileName: amazon_lru_cache_misses.py
 # @Date:   9/23/20, Wed
 """
-A virtual memory management system in an operating system at Amazon can use LeastRecently-Used (LRU) cache. When a requested memory page is not in the cache and the cache is full, the page that was least-recently-used should be removed from the cache to make room for the requested page. If the cache is not full, the requested page can simply be added to the cache and considered the most-recently-used page in the cache. A given page should occur at most once in the cache.
+A virtual memory management system in an operating system at Amazon can use LeastRecently-Used (LRU) cache. 
+When a requested memory page is not in the cache and the cache is full, the page that 
+was least-recently-used should be removed from the cache to make room for the requested page. 
+If the cache is not full, the requested page can simply be added to the cache and considered the 
+most-recently-used page in the cache. A given page should occur at most once in the cache.
 
-Given the maximum size of the cache and a list of page requests, write an algorithm to calculate the number of cache misses. A cache miss occurs when a page is requested and isn't found in the cache.
+Given the maximum size of the cache and a list of page requests, write an algorithm to calculate 
+the number of cache misses. A cache miss occurs when a page is requested and isn't found in the cache.
 
 Input
 
@@ -23,7 +28,8 @@ Return an integer representing the number of cache misses.
 
 Note
 
-The cache is initially empty and the list contains pages numbered in the range 1-50. A page at index "i" in the list is requested before a page at index "i+1".
+The cache is initially empty and the list contains pages numbered in the range 1-50. 
+A page at index "i" in the list is requested before a page at index "i+1".
 
 Constraints
 

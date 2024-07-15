@@ -51,7 +51,7 @@ def find_longest_seq_after_replacing_a_or_b(input_string):
 
 def find_longest_sequence_with_largest_sum(sequences):
     if len(sequences) == 1:
-        return sequences[0][1], sequences[0][2]
+        return (sequences[0][1], sequences[0][2])
 
     longest_sequence_sum = 0
     sequence = None

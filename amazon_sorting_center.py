@@ -5,9 +5,11 @@
 @Author   : Harsh Parikh
 @Date     : 7/20/21 5:24 PM
 
-You're given a 2d matrix, where '1' means an amazon sorting center, and 0 means a normal road. Amazon needs to open a new sorting center, and its must be as far as it can from other sorting centers.
+You're given a 2d matrix, where '1' means an amazon sorting center, and 0 means a normal road. 
+Amazon needs to open a new sorting center, and its must be as far as it can from other sorting centers.
 
-Write a function to return the max distance from all sorting centers. Here, distance means Manhattan distance, i.e. distance(p1, p2) = |x1 - x2| + |y1 - y2| where p is a point (x, y).
+Write a function to return the max distance from all sorting centers. Here, distance means Manhattan distance, 
+i.e. distance(p1, p2) = |x1 - x2| + |y1 - y2| where p is a point (x, y).
 
 Example
 Input:

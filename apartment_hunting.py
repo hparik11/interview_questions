@@ -15,29 +15,29 @@ Example —
 blocks = [
 {[
   {
-    "gym": false,
-    "school": true,
-    "store": false
+    "gym": False,
+    "school": True,
+    "store": False
   },
   {
-    "gym": true,
-    "school": false,
-    "store": false
+    "gym": True,
+    "school": False,
+    "store": False
   },
   {
-    "gym": true,
-    "school": true,
-    "store": false
+    "gym": True,
+    "school": True,
+    "store": False
   },
   {
-    "gym": false,
-    "school": true,
-    "store": false
+    "gym": False,
+    "school": True,
+    "store": False
   },
   {
-    "gym": false,
-    "school": true,
-    "store": true
+    "gym": False,
+    "school": True,
+    "store": True
   }
 ]
 requirements = [ “gym”, “school”, “store” ]
@@ -67,8 +67,9 @@ def apartmentHunting(blocks, reqs):
 
 def apartmentHunting1(blocks, reqs):
     minDistancesFromBlocks = list(map(lambda req: getMinDistances(blocks, req), reqs))
+    print(minDistancesFromBlocks)
     maxDistancesAtBlocks = getMaxDistancesAtBlocks(blocks, minDistancesFromBlocks)
-
+    print(maxDistancesAtBlocks)
     return getIdxAtMinValue(maxDistancesAtBlocks)
 
 
@@ -111,3 +112,10 @@ def getIdxAtMinValue(array):
 
 def distanceBetween(a, b):
     return abs(a - b)
+
+if __name__ == '__main__':
+    blocks = [ { "gym": False, "school": True, "store": False }, { "gym": True, "school": False, "store": False }, { "gym": True, "school": True, "store": False }, { "gym": False, "school": True, "store": False }, { "gym": False, "school": True, "store": True } ]
+    requirements = [ "gym", "school", "store" ]
+
+    apartmentHunting1(blocks, requirements)
+

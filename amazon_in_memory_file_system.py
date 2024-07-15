@@ -30,11 +30,12 @@ Explanation:
 filesystem
 """
 
+from collections import defaultdict
 
 class FileSystem(object):
     def __init__(self):
         self.trie = {}  # trie tree
-        self.fileinfo = collections.defaultdict(str)  # path: content
+        self.fileinfo = defaultdict(str)  # path: content
 
     def ls(self, path):
         if path in self.fileinfo:

@@ -5,7 +5,7 @@
 @Author   : Harsh Parikh
 @Date     : 8/5/21 1:27 PM
 
-Decision Tree Design， Implement three methods
+Decision Tree Design Implement three methods
 //   signal_value                  constant
 //                        X1 < 3
 //                       ------------

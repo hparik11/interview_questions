@@ -57,6 +57,7 @@ class Solution:
             min_nums.append(min(nums[i], min_nums[-1]))
 
         stack = []  # keep middle element 3 in 132
+        print(min_nums)
 
         for i in range(len(nums) - 1, -1, -1):
             # find nums[i] to be 2 in 132
@@ -65,18 +66,21 @@ class Solution:
             # 4
             if nums[i] > min_nums[i]:
                 # 5
-                while stack and stack[-1] < min_nums[i]:
+                while stack and stack[-1] <= min_nums[i]:
                     stack.pop()
+                    print("here")
 
                 # 6
                 if stack and min_nums[i] < stack[-1] < nums[i]:
-                    return True
+                    print(min_nums[i], stack[-1], nums[i])# return True
                 # 4
                 stack.append(nums[i])
+            
+            print(stack)
 
         return False
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.find132pattern([3, 1, 4, 2]))
+    print(s.find132pattern([-1,3,2,0]))

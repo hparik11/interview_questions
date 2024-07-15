@@ -25,19 +25,23 @@ def powerset(array):
     return subsets
 
 
-def subsets(self, nums):
+def subsets(nums):
     res = []
-    self.generateSubsets(nums, res, [], 0)
+    generateSubsets(nums, res, [], 0)
     return res
 
 
-def generateSubsets(self, nums, res, curr, index):
+def generateSubsets(nums, res, curr, index):
     res.append(list(curr))
+    print("Result", res)
     for i in range(index, len(nums)):
         curr.append(nums[i])
-        self.generateSubsets(nums, res, curr, i + 1)
+        print(f"before {curr} and i={i}")
+        generateSubsets(nums, res, curr, i + 1)
+        # print("Current", curr)
         curr.pop()
+        print("After popping Current", curr)
 
 
 if __name__ == '__main__':
-    print(powerset([1, 2, 3]))
+    print(subsets([1, 2, 3]))
